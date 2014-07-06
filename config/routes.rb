@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'contact/show'
+
+  get 'offers/show'
+
+  get 'reservation/show'
+
+  get 'services/show'
+
   get 'about/show'
 
   get 'home/index'
