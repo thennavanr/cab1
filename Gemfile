@@ -3,16 +3,10 @@ source 'https://rubygems.org'
 gem 'tzinfo-data'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
-<<<<<<< HEAD
 # Use sqlite3 as the database for Active Record
-
 gem 'pg'
 
-
-=======
-gem 'pg'
 # Use SCSS for stylesheets
->>>>>>> fb7e2ac5a0fd6e771872937332da46200cb755c8
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
