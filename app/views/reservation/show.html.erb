@@ -1,13 +1,15 @@
 <section id="contact-page">
         <div class="container">
             <div class="center">        
-                <h2>Drop Your Message</h2>
-                <p class="lead">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                
             </div> 
             <div class="row contact-wrap"> 
                 <div class="status alert alert-success" style="display: none"></div>
                 <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
                     <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <h2>Reservation Details</h2>
+                        </div>
                         <div class="form-group">
                             <label>Name *</label>
                             <input type="text" name="name" class="form-control" required="required">
@@ -17,26 +19,61 @@
                             <input type="email" name="email" class="form-control" required="required">
                         </div>
                         <div class="form-group">
-                            <label>Phone</label>
-                            <input type="number" class="form-control">
+                            <label>Phone *</label>
+                            <input type="text" class="form-control" required="required">
                         </div>
                         <div class="form-group">
-                            <label>Company Name</label>
+                            <label>Pick Up Date & Time *</label>
+                            <input type="datetime-local" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Vehicle Type  *</label>
+                            <select type="text" class="form-control" required="required">
+                                <option value="Sedan">Sedan</option>
+                                <option value="SUV">SUV</option>
+                                <option value="Van">Van</option>
+                                <option value="Limosine">Limosine</option>
+                                <option value="Streched Limosine">Streched Limosine</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>NUmber Of People </label>
                             <input type="text" class="form-control">
-                        </div>                        
-                    </div>
-                    <div class="col-sm-5">
-                        <div class="form-group">
-                            <label>Subject *</label>
-                            <input type="text" name="subject" class="form-control" required="required">
                         </div>
                         <div class="form-group">
-                            <label>Message *</label>
-                            <textarea name="message" id="message" required="required" class="form-control" rows="8"></textarea>
+                            <label>Drop Of Location *</label>
+                            <input type="text" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Pick Up Location *</label>
+                            <input type="text" name="subject" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Mode Of Payment *</label>
+                            <select type="text" class="form-control" required="required">
+                                <option value="Cash">Cash</option>
+                                <option value="Credit">Credit</option>
+                            </select>
                         </div>                        
                         <div class="form-group">
                             <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Submit Message</button>
                         </div>
+                        <div class="form-group">
+                            <p>We do accept all major credit cards and cash</p>
+                        </div>
+
+                        <div class="form-group">
+                                <img src=<%= asset_path "creditcards.jpg" %> class="img-responsive"> 
+                        </div> 
+
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                                <p>All the fields marked with asterisk (*) are required   Airport cab service  to the Atlanta Hartsfield airport, or from the airport. After filling out the reservation form properly, and click submit, you will receive an email confirmation from smyrna vinings airport taxi, also in addition to the email we will contact you on the phone number provided for a voice confirmation. </p> 
+                        </div> 
+                        <div class="form-group">
+                                <img src=<%= asset_path "reserv_black.jpg" %> class="img-responsive"> 
+                        </div> 
                     </div>
                 </form> 
             </div><!--/.row-->
