@@ -13,6 +13,7 @@ module Cab1
     
 
     config.assets.precompile += %w(.svg .eot .woff .ttf)
+    config.serve_static_assets = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
