@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> df63b6d29686632e4d52e1434aef314f6600270e
 development:
   adapter: postgresql 
   database: cabDB
