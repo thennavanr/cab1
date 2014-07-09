@@ -9,7 +9,7 @@ gem 'rails', '4.1.1'
 
 gem 'pg'
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+
 
 
 # Use SCSS for stylesheets
