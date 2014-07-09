@@ -1,17 +1,15 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> df63b6d29686632e4d52e1434aef314f6600270e
 development:
-   adapter: postgresql
-   database: postgres
-   username: postgres
-   password: aswini
-   host: localhost
-   encoding: UTF8
-
+  adapter: postgresql 
+  database: cabDB
+  pool: 5
+  timeout: 5000
 production:
  adapter: postgresql
- database: caillou 
+ database: cabDB 
  pool: 5
  timeout: 5000
-
-
 
