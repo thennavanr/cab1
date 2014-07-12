@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'offers/show'
 
-  get 'reservation/show'
+  get 'reservations/show'
 
   get 'services/show'
 
