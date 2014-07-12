@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  get 'contacts/show'
-  get 'contacts/index'
 
   get 'offers/show'
-
-  get 'reservations/show'
-
   get 'services/show'
 
   get 'about/show'
@@ -18,7 +13,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'home#index'
 
-resources :contacts
+   resources :reservations
+   resources :contacts
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

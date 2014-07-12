@@ -1,0 +1,58 @@
+<section id="contact-info">
+<div class="center">                
+  <h2>Want to Book a Cab?</h2>
+  <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+</div>
+
+<div class="gmap-area" style= "background-image: url(<%=  asset_path "map.jpg" %> );" >
+        <div class="container">
+            <div class="row contact-wrap"> 
+
+
+              <%= form_for @reservation, :url => reservations_path, :html => {:id => 'main-contact-form' , :class => 'contact-form' , :name => 'contact-form' , :method => 'post' } do |f| %>
+                
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <%= f.label :Name %>
+                            <%= f.text_field :name, :class => 'form-control' %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label :Phone %>
+                            <%= f.text_field :phone, :class=> 'form-control' %>
+                        </div>
+
+                        <div class="form-group">
+                            <%= f.label 'Pickup From' %>
+                            <%= f.text_field 'from_add', :class =>'form-control' %>
+                        </div>                        
+
+                        <div class="form-group">
+                            <%= f.label 'Pick Up Date & Time'  %>
+                            <%= f.datetime_field 'pickup_date', :class=> 'form-control' %>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+
+                        <div class="form-group">
+                            <%= f.label :Email  %>
+                            <%= f.text_field 'email',  :class => 'form-control' %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label 'Drop of' %>
+                            <%= f.text_field 'to_add', :class =>'form-control' %>
+                        </div>                        
+
+                        <div class="form-group">
+                            <%= f.label :Vehicle %>
+                            <%= f.select 'vechile', options_for_select([['Sedan',1],['SUV',2],['Van',3],['Limosine',4],['Streched Limosine',5]],2),{}, {:class =>'form-control'}  %>
+                        </div>
+
+                        <div class="form-group">
+                            <%= f.submit 'Submit', :class => 'btn btn-primary btn-lg' , :required => 'required' %>
+                        </div>
+                    </div>
+                  <%end%>
+</div><!--/.row-->
+</div><!--/.container-->
+</div>
+</section>
