@@ -39,6 +39,7 @@ jQuery(function($) {'use strict',
 	});
 
 	// Contact form
+	/*
 	var form = $('#main-contact-form');
 	form.submit(function(event){
 		event.preventDefault();
@@ -54,7 +55,8 @@ jQuery(function($) {'use strict',
 		});
 	});
 
-	
+	*/
+
 	//goto top
 	$('.gototop').click(function(event) {
 		event.preventDefault();
