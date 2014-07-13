@@ -2,17 +2,15 @@
 <html>
 <head>
 
-  <title>Smyrna Vining Airport Cabs</title>
+  <title>Smyrna Vinings Airport Cabs</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
   <%= stylesheet_link_tag    'bootstrap.min.css', media: 'all', 'data-turbolinks-track' => true %>
-
-  <%= stylesheet_link_tag    'font-awesome.css', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'animate.min.css', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'prettyPhoto.css', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'main.css', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'responsive.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag  '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css',media: 'all',  'data-turbolinks' => true %>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
@@ -23,14 +21,18 @@
   <%= javascript_include_tag 'main.js', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'wow.min.js', 'data-turbolinks-track' => true %>
 
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= csrf_meta_tags %>
+
+  <%= favicon_link_tag 'fav-icon.ico' %>
 
   <!-- core CSS -->
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
+
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
