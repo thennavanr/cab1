@@ -8,11 +8,9 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    if @contact.save
-            redirect_to contacts_path,  :notice => "Your contact was saved"
-        else
-            render "new"
-        end 
+    @contact.save
+    redirect_to @contact
+        
   end
   
 def index

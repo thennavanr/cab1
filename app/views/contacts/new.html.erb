@@ -1,0 +1,108 @@
+<section id="contact-info">
+<div class="center">                
+  <h2>How to Contact Us?</h2>
+  <p class="lead">Smyrna Vinings Airport cabs team is always available 24hrs a day, 7 days a week</p>
+</div>
+<div class="gmap-area" style= "background-image: url(<%=  asset_path "map.jpg" %> );" >
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5 text-center">
+        <div class="gmap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3311.173924349688!2d-84.422992!3d33.91092299999999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7ec3945db9ecba1d!2sSmyrna-Vinings+Airport+taxi+services!5e0!3m2!1sen!2sus!4v1404625642179" width="600" height="450" frameborder="0" style="border:0"></iframe>
+        </div>
+      </div>
+
+      <div class="col-sm-7 map-content">
+        <ul class="row">
+          <li class="col-sm-6">
+          <address>
+            <h5>Head Office</h5>
+            <p>2008 Crestlane Dr SE <br>
+             Smyrna, GA 30080 </p>
+            <p>Phone:770-572-6900 <br>
+            Email Address: meritcarservice@gmail.com</p>
+          </address>
+
+          <address>
+            <h5>Zonal Office</h5>
+            <p>1537 Flint Street <br>
+            Tumon, MP 96911</p>                                
+            <p>Phone:670-898-2847 <br>
+            Email Address:info@domain.com</p>
+          </address>
+          </li>
+
+
+          <li class="col-sm-6">
+          <address>
+            <h5>Zone#2 Office</h5>
+            <p>1537 Flint Street <br>
+            Tumon, MP 96911</p>
+            <p>Phone:670-898-2847 <br>
+            Email Address:info@domain.com</p>
+          </address>
+
+          <address>
+            <h5>Zone#3 Office</h5>
+            <p>1537 Flint Street <br>
+            Tumon, MP 96911</p>
+            <p>Phone:670-898-2847 <br>
+            Email Address:info@domain.com</p>
+          </address>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</section> 
+
+
+
+<section id="contact-page">
+        <div class="container">
+            <div class="center">        
+                <h2>Drop Your Message</h2>
+                <p class="lead">Direct all enquiries to <span style="color:#c52d2f;"><u>info@smyrnaviningsairportcabs.com</u></span></p>
+            </div> 
+            <div class="row contact-wrap"> 
+                
+                <%= form_for Contact.new , :url => contacts_path , :html => {:id => 'main-contact-form' , :class => 'contact-form' , :name => 'contact-form' , :method => 'post' } do |f| %>
+                
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <%= f.label 'Name *' %>
+                            <%= f.text_field :name ,:class => 'form-control', :required => 'required' %>
+                            
+                        </div>
+                        <div class="form-group">
+                            <%= f.label 'Email *' %>
+                            <%= f.text_field :email , :class => 'form-control' , :required =>'required'%>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label 'Phone *' %>
+                            <%= f.text_field :phone , :class => 'form-control' , :required =>'required' %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label 'Address'%>
+                            <%= f.text_field :address , :class => 'form-control'%>
+                        </div>                        
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <%= f.label 'Subject' %>
+                            <%= f.text_field :subject , :class => 'form-control' %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label 'Message' %>
+                            <%= f.text_area :message , :id => 'message' , :class => 'form-control' , :rows => "5" %>
+                        </div>                        
+                        <div class="form-group">
+                            <%= f.submit 'Submit Message' , :class => 'btn btn-primary btn-lg' , :required => 'required' %>
+                        </div>
+                    </div>
+                
+                <%end%> 
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#contact-page-->
