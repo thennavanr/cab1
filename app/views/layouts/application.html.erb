@@ -37,7 +37,13 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-
+    <script>
+    $(document).ready(function() {
+    
+    
+    
+    });
+    </script>
     
 <body>
 
@@ -83,12 +89,12 @@
         
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                      <li class="active"><%= link_to "Home", {:controller => 'home', :action => 'index'} %> </li>
-                        <li><%= link_to "About Us", {:controller => 'about', :action=>'show'} %></li>
-                        <li><%= link_to "Services", {:controller => 'services', :action=>'show'} %></li>
-                        <li><%= link_to "Reservation", new_reservation_path %></li>
-                        <li><%= link_to "Offers", {:controller => 'offers', :action=>'show'} %></li>
-                        <li><%= link_to "Contact", new_contact_path %></li>
+                    <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path %> </li>
+                    <li class="<%= 'active' if current_page?(new_about_path) %>"><%= link_to "About Us", new_about_path %></li>
+                    <li class="<%= 'active' if current_page?(new_service_path) %>"><%= link_to "Services", new_service_path %></li>
+                    <li class="<%= 'active' if current_page?(new_reservation_path) %>"><%= link_to "Reservation", new_reservation_path %></li>
+                    <li class="<%= 'active' if current_page?(new_offer_path) %>"><%= link_to "Offers", new_offer_path %></li>
+                    <li class="<%= 'active' if current_page?(new_contact_path) %>"><%= link_to "Contact", new_contact_path %></li>
 
                     </ul>
                 </div>

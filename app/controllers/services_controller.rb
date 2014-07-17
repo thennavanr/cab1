@@ -1,4 +1,4 @@
 class ServicesController < ApplicationController
-  def show
+  def new
   end
 end

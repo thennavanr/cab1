@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
    resources :reservations
    resources :contacts
+   resources :about
+   resources :home
+   resources :services
+   resources :offers
 
 
   # Example of regular route:

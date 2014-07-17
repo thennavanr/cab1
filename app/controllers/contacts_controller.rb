@@ -8,8 +8,16 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    @contact.save
-    redirect_to @contact
+    respond_to do |format|
+    if @contact.save
+    ContactMailer.send_signup_email(@contact).deliver
+    format.html { redirect_to(@contact, :notice => 'User was successfully created.') }  
+    format.xml  { render :xml => @contact, :status => :created, :location => @contact }  
+    else  
+      format.html { render :action => "new" }  
+      format.xml  { render :xml => @contact.errors, :status => :unprocessable_entity }  
+    end  
+    end
         
   end
   
