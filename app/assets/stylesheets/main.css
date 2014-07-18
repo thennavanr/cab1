@@ -372,8 +372,12 @@ input.search-form:hover {
   padding: 0;
 }
 
-#main-slider .carousel .carousel-content {
-  margin-top: 150px;
+#main-slider .carousel .carousel-content label{
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+
 }
 
 #main-slider .carousel .slide-margin{
