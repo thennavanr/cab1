@@ -395,6 +395,7 @@ input.search-form:hover {
   border-radius: 4px;
   margin-top: 25px;
   display: inline-block;
+  border:none;
 }
 
 #main-slider .carousel .slider-img{
