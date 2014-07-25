@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'services/show'
 
   get 'about/show'
+  get 'reservations/show'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
