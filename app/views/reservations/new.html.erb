@@ -22,7 +22,6 @@
 
                         <div class="form-group">
                             <%= f.label :Phone %>
-                            <%= f.telephone_field :phone, :class=> 'form-control' , :required => 'required' %>
                             <%= f.telephone_field :phone, :pattern =>'^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$',  :class=> 'form-control' , :required => 'required' , :placeholder => 'Your Phone Number' %>
                         </div>
 
