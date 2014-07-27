@@ -39,7 +39,7 @@ jQuery(function($) {'use strict',
 	});
 
 	// Contact form
-	/*
+        /*
 	var form = $('#main-contact-form');
 	form.submit(function(event){
 		event.preventDefault();
@@ -54,8 +54,7 @@ jQuery(function($) {'use strict',
 			form_status.html('<p class="text-success">' + data.message + '</p>').delay(3000).fadeOut();
 		});
 	});
-
-	*/
+*/
 
 	//goto top
 	$('.gototop').click(function(event) {

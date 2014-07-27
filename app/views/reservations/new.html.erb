@@ -12,18 +12,30 @@
                      <div class="col-sm-5 col-sm-offset-1">
                         <div class="form-group">
                             <%= f.label :Name %>
-                            <%= f.text_field :name, :class => 'form-control' , :required => 'required'%>
+                            <%= f.text_field :name, :class => 'form-control' , :required => 'required', :placeholder => 'Your Name' %>
                         </div>
+
+                        <div class="form-group">
+                            <%= f.label :Email  %>
+                            <%= f.email_field 'email',  :class => 'form-control' , :required => 'required' , :placeholder => 'Your Email Adddress' %>
+                        </div>
+
                         <div class="form-group">
                             <%= f.label :Phone %>
                             <%= f.telephone_field :phone, :class=> 'form-control' , :required => 'required' %>
+                            <%= f.telephone_field :phone, :pattern =>'^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$',  :class=> 'form-control' , :required => 'required' , :placeholder => 'Your Phone Number' %>
                         </div>
 
                         <div class="form-group">
                             <%= f.label 'Pick-up Address' %>
-                            <%= f.text_field 'from_add', :class =>'form-control' %>
+                            <%= f.text_field 'from_add', :class =>'form-control' , :placeholder => 'From Address' %>
                         </div>
                           
+                        <div class="form-group">
+                            <%= f.label 'Drop-off Address' %>
+                            <%= f.text_field 'to_add', :class =>'form-control' , :placeholder => 'To Address' %>
+                        </div>                        
+
                 <div class ="row">
                                              
                     <div class="col-sm-6">
@@ -32,26 +44,23 @@
                             <%= f.date_field :pickup_date , :value => Date.today , :class=>"form-control", :required=>"required" %>
                             </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                     <div class="form-group">
                             <%= f.label 'Time'  %>
-                            <%= f.select :time , options_for_select(   [['12:00 AM',1], ['12:30 AM', 30],['1:00 AM', 60],['1:30 AM', 90],['2:00 AM', 120],['2:30 AM', 150],['3:00 AM', 180],['3:30 AM', 210],['4:00 AM', 240],['4:30 AM', 270],['5:00 AM',300],['5:30 AM',330],['6:00 AM',360],['6:30 AM',390],['7:00 AM',420],['7:30 AM',450],['8:00 AM',480],['8:30 AM',510],['9:00 AM',540],['9:30 AM',570],['10:00 AM',600],['10:30 AM',630],['11:00 AM',660],['11:30 AM',690],['12:00 PM',720],['12:30 PM',750],['1:00 PM',780],['1:30 PM',810],['2:00 PM',840],['2:30 PM',870],['3:00 PM',900],['3:30 PM',930],['4:00 PM',960],['4:30 PM',990],['5:00 PM',1020],['5:30 PM',1050],['6:00 PM',1080],['6:30 PM',1110],['7:00 PM',1140],['7:30 PM',1170],['8:00 PM',1200],['8:30 PM',1230],['9:00 PM',1260],['9:30 PM',1290],['10:00 PM',1320],['10:30 PM',1350],['11:00 PM',1380],['11:30 PM',1410]] ,630),{}, {:class =>'form-control'}  %>
+                            <%= f.select :time , options_for_select(   [['12:00',1], ['12:30', 30],['1:00', 60],['1:30', 90],['2:00', 120],['2:30', 150],['3:00', 180],['3:30', 210],['4:00', 240],['4:30', 270],['5:00',300],['5:30',330],['6:00',360],['6:30',390],['7:00',420],['7:30',450],['8:00',480],['8:30',510],['9:00',540],['9:30',570],['10:00',600],['10:30',630],['11:00',660],['11:30',690]] ,630),{}, {:class =>'form-control'}  %>
 
                     </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                      <div class = "form-group">
+                        <%= f.label 'hr'  %>
+                        <%= select_tag 'hour', options_for_select([['AM',1],['PM',2]],1),{:class => 'form-control'} %>
+                      </div>
                     </div>
                 </div>     <!--row-->
-                    </div>
 
-                    <div class="col-sm-5">
 
-                        <div class="form-group">
-                            <%= f.label :Email  %>
-                            <%= f.text_field 'email',  :class => 'form-control' , :required => 'required' %>
-                        </div>
-                        <div class="form-group">
-                            <%= f.label 'Drop-off Address' %>
-                            <%= f.text_field 'to_add', :class =>'form-control' %>
-                        </div>                        
 
                         <div class="form-group">
                             <%= f.label :Vehicle %>
@@ -59,11 +68,25 @@
                         </div>
 
                         <div class="form-group">
+                            <%= f.label :Passengers%>
+                            <%= f.select 'passengers', options_for_select( [['1',1],['2',2],['3',3],['4',4],['5',5],['6',6],['7',7],['8',8],['9+',9]],1),{}, {:class =>'form-control'}  %>
+                        </div>
+
+
+                        <div class="form-group">
                             <%= f.submit 'Submit', :class => 'btn btn-primary btn-lg' , :required => 'required' %>
                         </div>
                     </div>
                   <%end%>
+                  <section>
+                  <div class="col-sm-5 text-center">
+                    <div class="gmap-big">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3311.173924349688!2d-84.422992!3d33.91092299999999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7ec3945db9ecba1d!2sSmyrna-Vinings+Airport+taxi+services!5e0!3m2!1sen!2sus!4v1404625642179" width="600" height="450" frameborder="0" style="border:0"></iframe>
+                    </div>
+                  </div>
+                  </section>
 </div><!--/.row-->
+
 </div><!--/.container-->
 </div>
 </section>
