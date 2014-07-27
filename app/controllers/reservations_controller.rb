@@ -9,6 +9,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
+    binding.pry
     respond_to do |format|
     if @reservation.save
     ReservationMailer.register_email(@reservation).deliver
@@ -23,6 +24,6 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params 
-    params.require(:reservation).permit(:name, :email, :phone)
+    params.require(:reservation).permit!
   end
 end
