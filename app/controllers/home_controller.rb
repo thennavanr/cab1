@@ -10,8 +10,17 @@ class HomeController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new(home_params)
-    @reservation.save
+    @reservation = Reservation.new(reservation_params)
+    respond_to do |format|
+    if @reservation.save
+    ReservationMailer.register_email(@reservation).deliver
+    format.html { redirect_to(@reservation, :notice => 'User was successfully created.') }  
+    format.xml  { render :xml => @reservation, :status => :created, :location => @reservation }  
+    else  
+      format.html { render :action => "new" }  
+      format.xml  { render :xml => @reservation.errors, :status => :unprocessable_entity }  
+    end  
+    end
   end
 
   private
