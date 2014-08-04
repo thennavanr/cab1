@@ -197,6 +197,11 @@ body > section {
   margin: 0
 }
 
+.top-number a[href^=tel]{
+  color:white
+}
+
+
 .social{
   text-align: right;
 }
