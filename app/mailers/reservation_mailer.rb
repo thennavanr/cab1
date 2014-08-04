@@ -1,5 +1,5 @@
 class ReservationMailer < ActionMailer::Base
-  default from: ENV["MAIL_USERNAME"]
+  default from: 'k.aswinii@gmail.com'
 
   def register_email(reservation)
     @reservation=reservation
