@@ -1,20 +1,82 @@
-<section>
-<div class="gmap-area" style= "background-image: url(<%=  asset_path "partners/partner_bg.png"  %> );" > 
+<section id="contact-info">
+  
+<div class="center">
+</div>     
+  <!--<div class="gmap-area" style= "background-image: url(<%=  asset_path "partners/partner_bg.png"  %> );" > -->
+  <div class="gmap-area" style= "background-image: url(<%=  asset_path "map.jpg" %> );" >
   <div class="container">
-    <div class="row contact-wrap"> 
+  <div class="row contact-wrap"> 
+  
+  <%= form_for @reservation, :url => reservations_path, :html => {:id => 'main-contact-form' , :class => 'reservation-form' , :name => 'reservation-form' , :method => 'post' } do |f| %>
+  <div class="col-sm-5 col-sm-offset-1">
+          <div class="form-group">
+            <%= f.label :Vehicle %>
+            <%= f.select 'vechile', options_for_select([['Sedan',1],['SUV',2],['Van',3],['Limosine',4],['Streched Limosine',5]],2),{}, {:class =>'form-control'}  %>
+          </div>
 
-    <div class="col-sm-5 text-center">
+          <div class="form-group">
+            <%= f.label :Passengers%>
+            <%= f.select 'passengers', options_for_select( [['1',1],['2',2],['3',3],['4',4],['5',5],['6',6],['7',7],['8',8],['9+',9]],1),{}, {:class =>'form-control'}  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label ("Meet And Greet At Baggage Claim ($15 additional fee)")%>
+          </div>
+            <div class="form-group">
+            <%= radio_button 'passengers', 'Yes' , {:class =>'form-control'} , :name =>'rad', :id =>'Radio0' , :checked=>'checked' %> 
+            <%= f.label ("Yes") %>
+            <%= radio_button 'passengers', 'No' , {:class =>'form-control'} , :name =>'rad', :id =>'Radio1' , :checked=>'checked'%> 
+            <%= f.label ("No") %>
+            </div>
+
+          <div class="form-group">
+            <%= f.label ("Overnight Surcharge Midnight To 5am ($10 additional fee)")%>
+          </div>
+          <div class="form-group">
+            <%= radio_button 'passengers', 'Yes' , {:class =>'form-control'} , :name =>'mid', :id =>'Radio2' , :checked=>'checked'%> 
+            <%= f.label ("Yes") %>
+            <%= radio_button 'passengers', 'No' , {:class =>'form-control'} , :name =>'mid', :id =>'Radio3' , :checked=>'checked'%> 
+            <%= f.label ("No") %>
+            </div>
+          
+          <div class="form-group">
+            <%= f.label ("Child Car Seat ($10 additional fee)")%>
+          </div>
+          <div class="form-group">
+            <%= radio_button 'passengers', 'Yes' , {:class =>'form-control'} , :name =>'child', :id =>'Radio4' , :checked=>'checked' %> 
+            <%= f.label ("Yes") %>
+            <%= radio_button 'passengers', 'No' , {:class =>'form-control'} , :name =>'child', :id =>'Radio5' , :checked=>'checked'%> 
+            <%= f.label ("No") %>
+          </div>
+
+
+          <div class="form-group">
+            <%= f.label ("Pets And Cats ($10 additional fee)")%>
+          </div>
+          <div class="form-group">
+            <%= radio_button 'passengers', 'Yes' , {:class =>'form-control'} , :name =>'pc', :id =>'Radio6' , :checked=>'checked'%> 
+            <%= f.label ("Yes") %>
+            <%= radio_button 'passengers', 'No' , {:class =>'form-control'} , :name =>'pc', :id =>'Radio7' , :checked=>'checked'%> 
+            <%= f.label ("No") %>
+          </div>
+
+
+
+
+
+  </div> <!-- col-5 -->
+  <%end%>
+  <div class="col-sm-5">
       <div class="gmap-big">
         <div id="map_canvas">
         </div>
       </div>
       <label id = "distance1"></label>
     </div>
-
+  </div>
 
   </div> <!--row -->
 </div> <!--container --> 
-</div> <!--gmap-area -->
-
-  </section>
+</div> <!--gmap-area --> 
+</section>
 
