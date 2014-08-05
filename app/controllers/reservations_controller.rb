@@ -9,7 +9,6 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-    binding.pry
     respond_to do |format|
     if @reservation.save
     ReservationMailer.register_email(@reservation).deliver
