@@ -1,41 +1,52 @@
-<section id="contact-info">
+<section id="contact-page">
 <div class="center">                
   <h2>Want to Book a Cab?</h2>
   <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
 </div>
 
-<div class="gmap-area" style= "background-image: url(<%=  asset_path "map.jpg" %> );" > 
+
   <div class="container">
     <div class="row contact-wrap"> 
 
-      <%= form_for @reservation, :url => reservations_path, :html => {:id => 'main-contact-form' , :class => 'reservation-form' , :name => 'reservation-form' , :method => 'post' } do |f| %>
+      <%= form_for @reservation, :url => reservations_path, :html => {:id => 'main-contact-form' , :class => 'contact-form' , :name => 'contact-form' , :method => 'post' } do |f| %>
+        
         <div class="col-sm-5 col-sm-offset-1">
           <div class="form-group">
             <%= f.label :Name %>
-            <%= f.text_field :name, :class => 'form-control' , :required => 'required', :placeholder => 'Your Name' %>
+            <%= f.text_field :name, :class => 'form-control' , :required => 'required' %>
           </div>
-
           <div class="form-group">
             <%= f.label :Email  %>
-            <%= f.email_field 'email',  :class => 'form-control' , :required => 'required' , :placeholder => 'Your Email Adddress' %>
+            <%= f.email_field 'email',  :class => 'form-control' , :required => 'required'  %>
           </div>
 
           <div class="form-group">
             <%= f.label :Phone %>
-            <%= f.telephone_field :phone, :pattern =>'^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$',  :class=> 'form-control' , :required => 'required' , :placeholder => 'Your Phone Number' %>
+            <%= f.telephone_field :phone, :pattern =>'^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$',  :class=> 'form-control' , :required => 'required' %>
           </div>
 
           <div class="form-group">
+            <%= f.label 'Company Name' %>
+            <%= f.text_field 'email', :class => 'form-control' , :required => 'required' %>
+          </div>
+
+        </div> <!--col 5 offset-->
+
+          
+
+        <div class="col-sm-5">
+         
+         <div class="form-group">
             <%= f.label 'Pick-up Address' %>
-            <%= f.text_field 'from_add', :id=> 'from_add' , :name=> 'from_add' ,:class =>'form-control' , :placeholder => 'From Address' %>
+            <%= f.text_field 'from_add', :id=> 'from_add' , :name=> 'from_add' ,:class =>'form-control'  %>
           </div>
 
           <div class="form-group">
             <%= f.label 'Drop-off Address' %>
-            <%= f.text_field 'to_add', :id=> 'to_add' , :name=> 'to_add' , :class =>'form-control' , :placeholder => 'To Address' %>
+            <%= f.text_field 'to_add', :id=> 'to_add' , :name=> 'to_add' , :class =>'form-control'  %>
           </div>                        
 
-          <div class ="row">
+        <div class ="row">
 
             <div class="col-sm-6">
               <div class="form-group">
@@ -58,49 +69,14 @@
               </div>
             </div>
           </div>     <!--row-->
+
           <div class="form-group">
-            <%= f.submit 'Submit' , :id => 'calcRoute' , :class => 'btn btn-primary btn-lg' , :required => 'required' %> 
+            <%= f.submit 'Continue' , :id => 'calcRoute' , :class => 'btn btn-primary btn-lg' , :required => 'required' %> 
           </div>
-        </div>
-      <%end%>
-
-        <div class="col-sm-5">
-          <!-- about us slider -->
-      <div id="about-slider">
-        <div id="carousel-slider" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-            <ol class="carousel-indicators visible-xs">
-              <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
-              <li data-target="#carousel-slider" data-slide-to="1"></li>
-              <li data-target="#carousel-slider" data-slide-to="2"></li>
-            </ol>
-
-          <div class="carousel-inner">
-            <div class="item active">
-              <img src=<%= asset_path "textimg.jpg" %> class="img-responsive" alt=""> 
-             </div>
-             <div class="item">
-              <img src=<%= asset_path "nav1.jpg" %> class="img-responsive" alt=""> 
-             </div> 
-             <div class="item">
-              <img src=<%= asset_path "whitecar.jpg" %> class="img-responsive" alt=""> 
-             </div> 
-          </div>
-          
-          <a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
-            <i class="fa fa-angle-left"></i> 
-          </a>
-          
-          <a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
-            <i class="fa fa-angle-right"></i> 
-          </a>
-        </div> <!--/#carousel-slider-->
-      </div><!--/#about-slider-->
-        </div>
-
+      </div> <!-- col 5 -->
+        <%end%>
     </div> <!--row -->
   </div> <!--container -->
-</div> <!--gmap-area -->
 
       </section> 
 
