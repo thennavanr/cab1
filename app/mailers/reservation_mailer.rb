@@ -1,9 +1,5 @@
 class ReservationMailer < ActionMailer::Base
-<<<<<<< HEAD
-  default from: 'k.aswinii@gmail.com'
-=======
   default from:'k.aswinii@gmail.com' 
->>>>>>> de221cbf3b12e8befd1671dc2e84578734de1edd
 
   def register_email(reservation)
     @reservation=reservation
