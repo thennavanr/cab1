@@ -35,13 +35,13 @@
           <div class ="row">
           <div class="col-sm-9">
           <div class="form-group">
-            <%= f.label ("Baggage Claim ($15 additional fee)")%>
+            <%= f.label ("Meet and Greet at Baggage Claim ($15 additional fee)")%>
           </div>
           </div>
           <div class="col-sm-3">
           <div class="onoffswitch">
               <%= f.check_box :meet_greet , {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
-              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'myonoffswitch' do %>
+              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'reservation_meet_greet' do %>
             <span class="onoffswitch-inner"></span>
             <span class="onoffswitch-switch"></span>
             <%end%>
@@ -57,8 +57,8 @@
           </div>
           <div class="col-sm-3">
           <div class="onoffswitch">
-              <%= f.check_box ('passengers'), {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
-              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'myonoffswitch' do %>
+              <%= f.check_box ('over_night_surcharge'), {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
+              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'reservation_over_night_surcharge' do %>
             <span class="onoffswitch-inner"></span>
             <span class="onoffswitch-switch"></span>
             <%end%>
@@ -69,13 +69,13 @@
             <div class ="row">
           <div class="col-sm-9">
           <div class="form-group">
-            <%= f.label ("Baby Seat ($10 additional fee)")%>
+            <%= f.label ("Child Seat ($10 additional fee)")%>
           </div>
           </div>
           <div class="col-sm-3">
           <div class="onoffswitch">
-              <%= f.check_box ('passengers'), {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
-              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'myonoffswitch' do %>
+              <%= f.check_box :child_seat, {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
+              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'reservation_child_seat' do %>
             <span class="onoffswitch-inner"></span>
             <span class="onoffswitch-switch"></span>
             <%end%>
@@ -86,13 +86,13 @@
           <div class ="row">
           <div class="col-sm-9">
           <div class="form-group">
-            <%= f.label ("Pets And Cats ($10 additional fee)")%>
+            <%= f.label ("Pets ($10 additional fee)")%>
           </div>
           </div>
           <div class="col-sm-3">
           <div class="onoffswitch">
-              <%= f.check_box ('passengers'), {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
-              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'myonoffswitch' do %>
+              <%= f.check_box :pet, {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
+              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'reservation_pet' do %>
             <span class="onoffswitch-inner"></span>
             <span class="onoffswitch-switch"></span>
             <%end%>
@@ -145,13 +145,6 @@
 </div> <!--container --> 
 </div> <!--gmap-area --> 
 <!-- Large button -->
-<div class="onoffswitch">
-    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-    <label class="onoffswitch-label" for="myonoffswitch">
-        <span class="onoffswitch-inner"></span>
-        <span class="onoffswitch-switch"></span>
-    </label>
-</div>
 
 </section>
 
