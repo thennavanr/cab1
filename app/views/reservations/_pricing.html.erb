@@ -1,67 +1,133 @@
 <section id="contact-info">
+<link href="http://gitcdn.github.io/ajax/bootstrap-toggle/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="http://gitcdn.github.io/ajax/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
   
 <div class="center">
 </div>     
   <!--<div class="gmap-area" style= "background-image: url(<%=  asset_path "partners/partner_bg.png"  %> );" > -->
-  <div class="gmap-area" style= "background-image: url(<%=  asset_path "map.jpg" %> );" >
+<div class="gmap-area" style= "background-image: url(<%=  asset_path "slider/bg3.jpg" %>);" >
   <div class="container">
   <div class="row contact-wrap"> 
   
   <%= form_for @reservation, :url => reservations_path, :html => {:id => 'main-contact-form' , :class => 'reservation-form' , :name => 'reservation-form' , :method => 'post' } do |f| %>
   <div class="col-sm-5 col-sm-offset-1">
           <div class="form-group">
+            <%= f.label ("Type of Service") %>
+            <%= f.select 'passengers', options_for_select([['One Way to Airport',1],['One Way from Airport',2],['Round Trip to Airport',3],['Round Trip from Airport',4],['Hourly',5], ['Point-to-Point',6]],2),{}, {:class =>'form-control'} %>
+          </div>
+
+          <div class ="row">
+          <div class="col-sm-6">
+          <div class="form-group">
             <%= f.label :Vehicle %>
             <%= f.select 'vechile', options_for_select([['Sedan',1],['SUV',2],['Van',3],['Limosine',4],['Streched Limosine',5]],2),{}, {:class =>'form-control'}  %>
           </div>
-
+          </div>
+          <div class="col-sm-6">
           <div class="form-group">
             <%= f.label :Passengers%>
-            <%= f.select 'passengers', options_for_select( [['1',1],['2',2],['3',3],['4',4],['5',5],['6',6],['7',7],['8',8],['9+',9]],1),{}, {:class =>'form-control'}  %>
+            <%= f.select 'passengers', options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5],['6',6],['7',7],['8',8],['9+',9]],1),{}, {:class =>'form-control'}  %>
           </div>
+          </div>
+          </div> <!--row-->
 
+
+          <div class ="row">
+          <div class="col-sm-9">
           <div class="form-group">
-            <%= f.label ("Meet And Greet At Baggage Claim ($15 additional fee)")%>
+            <%= f.label ("Baggage Claim ($15 additional fee)")%>
           </div>
-            <div class="form-group">
-            <%= radio_button 'passengers', 'Yes' , {:class =>'form-control'} , :name =>'rad', :id =>'Radio0' , :checked=>'checked' %> 
-            <%= f.label ("Yes") %>
-            <%= radio_button 'passengers', 'No' , {:class =>'form-control'} , :name =>'rad', :id =>'Radio1' , :checked=>'checked'%> 
-            <%= f.label ("No") %>
+          </div>
+          <div class="col-sm-3">
+          <div class="onoffswitch">
+              <%= f.check_box :meet_greet , {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
+              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'myonoffswitch' do %>
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+            <%end%>
             </div>
-
-          <div class="form-group">
-            <%= f.label ("Overnight Surcharge Midnight To 5am ($10 additional fee)")%>
-          </div>
-          <div class="form-group">
-            <%= radio_button 'passengers', 'Yes' , {:class =>'form-control'} , :name =>'mid', :id =>'Radio2' , :checked=>'checked'%> 
-            <%= f.label ("Yes") %>
-            <%= radio_button 'passengers', 'No' , {:class =>'form-control'} , :name =>'mid', :id =>'Radio3' , :checked=>'checked'%> 
-            <%= f.label ("No") %>
             </div>
-          
-          <div class="form-group">
-            <%= f.label ("Child Car Seat ($10 additional fee)")%>
-          </div>
-          <div class="form-group">
-            <%= radio_button 'passengers', 'Yes' , {:class =>'form-control'} , :name =>'child', :id =>'Radio4' , :checked=>'checked' %> 
-            <%= f.label ("Yes") %>
-            <%= radio_button 'passengers', 'No' , {:class =>'form-control'} , :name =>'child', :id =>'Radio5' , :checked=>'checked'%> 
-            <%= f.label ("No") %>
-          </div>
+            </div> <!--row-->
 
+          <div class ="row">
+          <div class="col-sm-9">
+          <div class="form-group">
+            <%= f.label ("Overnight Surcharge ($10 additional fee))")%>
+          </div>
+          </div>
+          <div class="col-sm-3">
+          <div class="onoffswitch">
+              <%= f.check_box ('passengers'), {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
+              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'myonoffswitch' do %>
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+            <%end%>
+            </div>
+            </div>
+            </div> <!--row-->
 
+            <div class ="row">
+          <div class="col-sm-9">
+          <div class="form-group">
+            <%= f.label ("Baby Seat ($10 additional fee)")%>
+          </div>
+          </div>
+          <div class="col-sm-3">
+          <div class="onoffswitch">
+              <%= f.check_box ('passengers'), {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
+              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'myonoffswitch' do %>
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+            <%end%>
+            </div>
+            </div>
+            </div> <!--row-->
+
+          <div class ="row">
+          <div class="col-sm-9">
           <div class="form-group">
             <%= f.label ("Pets And Cats ($10 additional fee)")%>
           </div>
-          <div class="form-group">
-            <%= radio_button 'passengers', 'Yes' , {:class =>'form-control'} , :name =>'pc', :id =>'Radio6' , :checked=>'checked'%> 
-            <%= f.label ("Yes") %>
-            <%= radio_button 'passengers', 'No' , {:class =>'form-control'} , :name =>'pc', :id =>'Radio7' , :checked=>'checked'%> 
-            <%= f.label ("No") %>
+          </div>
+          <div class="col-sm-3">
+          <div class="onoffswitch">
+              <%= f.check_box ('passengers'), {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
+              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'myonoffswitch' do %>
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+            <%end%>
+            </div>
+            </div>
+            </div> <!--row-->
+
+            <div class="form-group" id="onewayfrom1">
+          <%= f.label 'Return Drop-off Address' %>
+          <%= f.text_field 'to_add', :id=> 'to_add' , :name=> 'to_add' , :class =>'form-control'  %>
+          </div>                        
+
+        <div class ="row">
+
+          <div class="col-sm-6">
+            <div class="form-group" id="onewayfrom2">
+              <%= f.label 'Return Date'  %>
+              <%= f.date_field :pickup_date , :value => Date.today , :class=>"form-control", :required=>"required" %>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group" id="onewayfrom3">
+              <%= f.label 'Return Time'  %>
+              <%= f.select :time , options_for_select(   [['12:00',1], ['12:30', 30],['1:00', 60],['1:30', 90],['2:00', 120],['2:30', 150],['3:00', 180],['3:30', 210],['4:00', 240],['4:30', 270],['5:00',300],['5:30',330],['6:00',360],['6:30',390],['7:00',420],['7:30',450],['8:00',480],['8:30',510],['9:00',540],['9:30',570],['10:00',600],['10:30',630],['11:00',660],['11:30',690]] ,630),{}, {:class =>'form-control'}  %>
+
+            </div>
           </div>
 
-
-
+          <div class="col-sm-3" id="onewayfrom4">
+            <div class = "form-group">
+              <%= f.label 'hr'  %>
+              <%= select_tag 'hour', options_for_select([['AM',1],['PM',2]],1),{:class => 'form-control'} %>
+            </div>
+          </div>
+        </div> <!--row-->
 
 
   </div> <!-- col-5 -->
@@ -78,5 +144,14 @@
   </div> <!--row -->
 </div> <!--container --> 
 </div> <!--gmap-area --> 
+<!-- Large button -->
+<div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+</div>
+
 </section>
 
