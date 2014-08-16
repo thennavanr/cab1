@@ -90,7 +90,7 @@ travelMode: google.maps.DirectionsTravelMode.DRIVING
 }
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 10px;
+    border: 2px solid #999999; border-radius: 4px;
 }
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;
@@ -134,6 +134,20 @@ travelMode: google.maps.DirectionsTravelMode.DRIVING
 <section>
 <%= render "user_contact_info" %>
 <%= render "pricing" %>
+<%= render "invoice" %>
+</section>
+<section>
+<!--
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+  <input type="hidden" name="cmd" value="_s-xclick">
+  <input type="hidden" name="hosted_button_id" value="M7RJJ99XWAN52">
+  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+-->
+
+
 </section>
 </html>
 
