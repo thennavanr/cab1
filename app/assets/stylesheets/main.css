@@ -1952,6 +1952,12 @@ ul.social_icons li  a i{
   font-size: 16px;
   font-weight: 300;
 }
+#contact-info-price .contact-form 
+.form-group label {
+  color: #4E4E4E;
+  font-size: 16px;
+  font-weight: 300;
+}
 
 .form-group .form-control {
   padding: 7px 12px;

@@ -1,16 +1,14 @@
 <section id="contact-info">
 <div class="center">                
-  <h2>How to Contact Us?</h2>
+  <h2>Checkout</h2>
   <p class="lead">Smyrna Vinings Airport cabs team is always available 24hrs a day, 7 days a week</p>
 </div>
 <div class="gmap-area" style= "background-image: url(<%=  asset_path "map.jpg" %> );" >
   <div class="container">
     <div class="row">
-      <div class="col-sm-5 text-center">
-        </div>
-      </div>
 
-      <div class="col-sm-7 map-content">
+
+      <div class="col-sm-6 map-content">
         <ul class="row">
           <li class="col-sm-6">
           <address>
@@ -57,12 +55,19 @@
         </ul>
 
 
-        <%= link_to "Checkout", @reservation.paypal_url(reservations_show_url) %>
 
       </div>
-    </div>
-  </div>
+      <div class="col-sm-6 text-center">
+        <input class="btn btn-primary btn-lg" id="calcRoute" name="commit" onclick="#" required="required" type="submit" value="Pay with PayPal">
+      </div>
 
+      <div class="col-sm-6 text-center">
+        <img src=<%= asset_path "paypal_small.png"%> id="pay_pay_small" >
+      </div>
+    </div>
+‡ Credit card information is never stored with us but with payment company that handles communication with the payment business
+  </div>
+</div>
 </div>
 
 </section> 

@@ -45,39 +45,6 @@ travelMode: google.maps.DirectionsTravelMode.DRIVING
 
     </script>
 
-
-
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $('#onewayfrom1').show();
-        $('#onewayfrom2').show();
-        $('#onewayfrom3').show();
-        $('#onewayfrom4').show();
-
-        $('#reservation_passengers').change(function () {
-           if ($('#reservation_passengers option:selected').text() == "1"){
-            $('#onewayfrom1').hide();
-            $('#onewayfrom2').hide();
-            $('#onewayfrom3').hide();
-            $('#onewayfrom4').hide();
-        }
-        else if ($('#reservation_passengers option:selected').text() == "3"){
-        $('#onewayfrom1').show();
-        $('#onewayfrom2').show();
-        $('#onewayfrom3').show();
-        $('#onewayfrom4').show();
-        }
-        else if ($('#reservation_passengers option:selected').text() == "4"){
-        $('#onewayfrom1').show();
-        $('#onewayfrom2').show();
-        $('#onewayfrom3').show();
-        $('#onewayfrom4').show();
-        }
-    }); 
-
-    });
-       
-    </script>
 <style>
 
 

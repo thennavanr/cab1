@@ -1,23 +1,20 @@
 class ReservationsController < ApplicationController
 
-  @@res = Reservation.new 
 
   def show
     @reservations = Reservation.find(params[:id])
-    @@res = @reservations
   end
 
   def new
-    @reservation = @@res 
+    @reservation = (session[:reservation_id] ? Reservation.find(session[:reservation_id]) : Reservation.new)
     @anchor = "contact-info-price" if @reservation.id
   end
 
   def create
-    binding.pry
     @reservation = Reservation.new(reservation_params)
     @reservation.save
     puts "reservation saved successfully"
-    @@res = @reservation
+    session[:reservation_id] = @reservation.id
     redirect_to :action => 'new' 
   end
 

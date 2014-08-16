@@ -1,4 +1,62 @@
 <section id="contact-info-price">
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#onewayfrom1').hide();
+      $('#onewayfrom2').hide();
+      $('#onewayfrom3').hide();
+      $('#onewayfrom4').hide();
+
+      $('#reservation_passengers').change(function(){
+        if($('#reservation_passengers option:selected').val()=="2"){
+        $('#onewayfrom1').show();
+        $('#onewayfrom2').show();
+        $('#onewayfrom3').show();
+        $('#onewayfrom4').show();
+        }
+        else if($('#reservation_passengers option:selected').val()=="3")
+        {
+        $('#onewayfrom1').show();
+        $('#onewayfrom2').show();
+        $('#onewayfrom3').show();
+        $('#onewayfrom4').show();
+        }
+        else if($('#reservation_passengers option:selected').val()=="4")
+        {
+        $('#onewayfrom1').show();
+        $('#onewayfrom2').show();
+        $('#onewayfrom3').show();
+        $('#onewayfrom4').show();
+        }
+        else if($('#reservation_passengers option:selected').val()=="5")
+        {
+          $('#onewayfrom1').show();
+          $('#onewayfrom2').show();
+          $('#onewayfrom3').show();
+          $('#onewayfrom4').show();
+        }
+        else if($('#reservation_passengers option:selected').val()=="6")
+        {
+          $('#onewayfrom1').show();
+          $('#onewayfrom2').show();
+          $('#onewayfrom3').show();
+          $('#onewayfrom4').show();
+        }
+        else
+        {
+
+          $('#onewayfrom1').hide();
+          $('#onewayfrom2').hide();
+          $('#onewayfrom3').hide();
+          $('#onewayfrom4').hide();
+        }
+
+      });
+
+
+
+  });
+
+</script>
 <link href="http://gitcdn.github.io/ajax/bootstrap-toggle/css/bootstrap-toggle.min.css" rel="stylesheet">
 <script src="http://gitcdn.github.io/ajax/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
   
@@ -15,7 +73,7 @@
   <div class="container">
   <div class="row contact-wrap"> 
   
-    <%= form_for @reservation, :url => reservations_path(@reservation, :anchor => 'special_request'), :html => {:id => 'main-contact-form' , :class => 'reservation-form' , :name => 'reservation-form' , :method => 'post' } do |f| %>
+    <%= form_for @reservation, :url => reservations_path(@reservation, :anchor => 'special_request'), :html => {:id => 'main-contact-form' , :class => 'contact-form' , :name => 'reservation-form' , :method => 'post' } do |f| %>
   <div class="col-sm-5 col-sm-offset-1">
           <div class="form-group">
             <%= f.label ("Type of Service") %>
@@ -41,7 +99,7 @@
           <div class ="row">
           <div class="col-sm-9">
           <div class="form-group">
-            <%= f.label ("Meet and Greet at Baggage Claim ($15 additional fee)")%>
+            <%= f.label ("Meet and Greet at Baggage Claim - $15")%>
           </div>
           </div>
           <div class="col-sm-3">
@@ -58,7 +116,7 @@
           <div class ="row">
           <div class="col-sm-9">
           <div class="form-group">
-            <%= f.label ("Overnight Surcharge ($10 additional fee))")%>
+            <%= f.label ("Overnight Surcharge - $10")%>
           </div>
           </div>
           <div class="col-sm-3">
@@ -75,7 +133,7 @@
             <div class ="row">
           <div class="col-sm-9">
           <div class="form-group">
-            <%= f.label ("Child Seat ($10 additional fee)")%>
+            <%= f.label ("Child Seat - $10")%>
           </div>
           </div>
           <div class="col-sm-3">
@@ -92,7 +150,7 @@
           <div class ="row">
           <div class="col-sm-9">
           <div class="form-group">
-            <%= f.label ("Pets ($10 additional fee)")%>
+            <%= f.label ("Pets - $10")%>
           </div>
           </div>
           <div class="col-sm-3">
@@ -133,8 +191,12 @@
               <%= select_tag 'hour', options_for_select([['AM',1],['PM',2]],1),{:class => 'form-control'} %>
             </div>
           </div>
+
         </div> <!--row-->
 
+            <div class = "form-group">
+              <%= f.submit 'Checkout' , :id => 'calcRoute' , :class => 'btn btn-primary btn-lg', :onclick =>"#",  :required => 'required' %>
+            </div>
 
   </div> <!-- col-5 -->
   <%end%>
@@ -144,6 +206,7 @@
         </div>
       </div>
       <label id = "distance1"></label>
+      
     </div>
   </div>
 
