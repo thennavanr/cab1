@@ -1,6 +1,62 @@
 <section id="contact-info">
-<link href="http://gitcdn.github.io/ajax/bootstrap-toggle/css/bootstrap-toggle.min.css" rel="stylesheet">
-<script src="http://gitcdn.github.io/ajax/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#onewayfrom1').hide();
+        $('#onewayfrom2').hide();
+        $('#onewayfrom3').hide();
+        $('#onewayfrom4').hide();
+
+        $('#reservation_passengers').change(function(){
+           if($('#reservation_passengers option:selected').val()=="2"){
+            $('#onewayfrom1').show();
+            $('#onewayfrom2').show();
+            $('#onewayfrom3').show();
+            $('#onewayfrom4').show();
+        }
+        else if($('#reservation_passengers option:selected').val()=="3")
+        {
+            $('#onewayfrom1').show();
+            $('#onewayfrom2').show();
+            $('#onewayfrom3').show();
+            $('#onewayfrom4').show();
+        }
+        else if($('#reservation_passengers option:selected').val()=="4")
+        {
+            $('#onewayfrom1').show();
+            $('#onewayfrom2').show();
+            $('#onewayfrom3').show();
+            $('#onewayfrom4').show();
+        }
+        else if($('#reservation_passengers option:selected').val()=="5")
+        {
+            $('#onewayfrom1').show();
+            $('#onewayfrom2').show();
+            $('#onewayfrom3').show();
+            $('#onewayfrom4').show();
+        }
+        else if($('#reservation_passengers option:selected').val()=="6")
+        {
+            $('#onewayfrom1').show();
+            $('#onewayfrom2').show();
+            $('#onewayfrom3').show();
+            $('#onewayfrom4').show();
+        }
+        else
+        {
+
+            $('#onewayfrom1').hide();
+            $('#onewayfrom2').hide();
+            $('#onewayfrom3').hide();
+            $('#onewayfrom4').hide();
+        }
+
+        });
+
+        
+
+    });
+       
+    </script>
   
 <div class="center">
 </div>     
@@ -13,7 +69,7 @@
   <div class="col-sm-5 col-sm-offset-1">
           <div class="form-group">
             <%= f.label ("Type of Service") %>
-            <%= f.select 'passengers', options_for_select([['One Way to Airport',1],['One Way from Airport',2],['Round Trip to Airport',3],['Round Trip from Airport',4],['Hourly',5], ['Point-to-Point',6]],2),{}, {:class =>'form-control'} %>
+            <%= f.select 'passengers', options_for_select([['One Way to Airport',1],['One Way from Airport',2],['Round Trip to Airport',3],['Round Trip from Airport',4],['Hourly',5], ['Point-to-Point',6]],1),{}, {:class =>'form-control'} %>
           </div>
 
           <div class ="row">
@@ -37,15 +93,6 @@
           <div class="form-group">
             <%= f.label ("Baggage Claim ($15 additional fee)")%>
           </div>
-          </div>
-          <div class="col-sm-3">
-          <div class="onoffswitch">
-              <%= f.check_box :meet_greet , {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
-              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'myonoffswitch' do %>
-            <span class="onoffswitch-inner"></span>
-            <span class="onoffswitch-switch"></span>
-            <%end%>
-            </div>
             </div>
             </div> <!--row-->
 
@@ -55,15 +102,6 @@
             <%= f.label ("Overnight Surcharge ($10 additional fee))")%>
           </div>
           </div>
-          <div class="col-sm-3">
-          <div class="onoffswitch">
-              <%= f.check_box ('passengers'), {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
-              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'myonoffswitch' do %>
-            <span class="onoffswitch-inner"></span>
-            <span class="onoffswitch-switch"></span>
-            <%end%>
-            </div>
-            </div>
             </div> <!--row-->
 
             <div class ="row">
@@ -71,15 +109,6 @@
           <div class="form-group">
             <%= f.label ("Baby Seat ($10 additional fee)")%>
           </div>
-          </div>
-          <div class="col-sm-3">
-          <div class="onoffswitch">
-              <%= f.check_box ('passengers'), {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
-              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'myonoffswitch' do %>
-            <span class="onoffswitch-inner"></span>
-            <span class="onoffswitch-switch"></span>
-            <%end%>
-            </div>
             </div>
             </div> <!--row-->
 
@@ -88,15 +117,6 @@
           <div class="form-group">
             <%= f.label ("Pets And Cats ($10 additional fee)")%>
           </div>
-          </div>
-          <div class="col-sm-3">
-          <div class="onoffswitch">
-              <%= f.check_box ('passengers'), {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
-              <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'myonoffswitch' do %>
-            <span class="onoffswitch-inner"></span>
-            <span class="onoffswitch-switch"></span>
-            <%end%>
-            </div>
             </div>
             </div> <!--row-->
 
@@ -144,14 +164,5 @@
   </div> <!--row -->
 </div> <!--container --> 
 </div> <!--gmap-area --> 
-<!-- Large button -->
-<div class="onoffswitch">
-    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-    <label class="onoffswitch-label" for="myonoffswitch">
-        <span class="onoffswitch-inner"></span>
-        <span class="onoffswitch-switch"></span>
-    </label>
-</div>
-
 </section>
 

@@ -6,7 +6,6 @@ class ReservationMailer < ActionMailer::Base
     headers["Reply_to"]=ENV["MAIL_USERNAME"]
     headers["Return_path"]=ENV["MAIL_USERNAME"]
 
-binding.pry
 
     mail( :to => reservation.email, :subject => 'Cab Booking Confirmation.' )
   end
