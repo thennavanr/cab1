@@ -57,7 +57,7 @@ travelMode: google.maps.DirectionsTravelMode.DRIVING
 }
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 4px;
+    /* border: 2px solid #999999;*/ border-radius: 4px;
 }
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;
@@ -72,19 +72,23 @@ travelMode: google.maps.DirectionsTravelMode.DRIVING
 .onoffswitch-inner:before {
     content: "Yes";
     padding-left: 10px;
-    background-color: #66FF33; color: #FFFFFF;
+    background-color: #66FF33; color: #4E4E4E;
+    font-weight: 300;
 }
 .onoffswitch-inner:after {
     content: "No";
     padding-right: 10px;
-    background-color: #EEEEEE; color: #999999;
+    background-color: #EEEEEE; color: #4E4E4E ;
     text-align: right;
+    font-weight: 300;
 }
 .onoffswitch-switch {
-    display: block; width: 18px; margin: 6px;
+  display: block; width: 50%; 
+  border-right: 1px solid #999999; 
+  /* margin: 6px;
     background: #FFFFFF;
-    border: 2px solid #999999; border-radius: 20px;
-    position: absolute; top: 0; bottom: 0; right: 56px;
+    border: 2px solid #999999; border-radius: 20px;i*/
+    position: absolute; top: 0; bottom: 0; /*right: 56px;*/
     -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
     -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
 }
@@ -92,7 +96,6 @@ travelMode: google.maps.DirectionsTravelMode.DRIVING
     margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
 }
 
 </style>
