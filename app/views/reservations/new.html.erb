@@ -97,7 +97,7 @@ window.onload = function(){initialize();};
 .onoffswitch-inner:before {
     content: "Yes";
     padding-left: 10px;
-    background-color: #66FF33; color: #4E4E4E;
+    background-color: greenyellow; color: #4E4E4E;
     font-weight: 300;
 }
 .onoffswitch-inner:after {
@@ -129,8 +129,11 @@ window.onload = function(){initialize();};
 <section>
 <%= render "user_contact_info" %>
 <%= render "pricing" %>
+
 </section>
+<section>
 <%= render "invoice" %>
+</section>
 <!--
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
   <input type="hidden" name="cmd" value="_s-xclick">
