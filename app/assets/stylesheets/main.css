@@ -1931,6 +1931,7 @@ ul.social_icons li  a i{
     overflow: hidden;
     position: relative;
     margin: 0 auto;
+    border-radius: 4px;
 }
 
 .gmap-area .map-content ul {
