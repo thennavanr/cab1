@@ -1,4 +1,5 @@
 class Reservation < ActiveRecord::Base
+  has_many :special_requests
 
   def paypal_url return_url
     values = {

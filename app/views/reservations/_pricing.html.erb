@@ -195,6 +195,8 @@
         </div> <!--row-->
 
             <div class = "form-group">
+              <%=f.hidden_field :distance2, :id=>"distance_hid",:value=> 0 %>
+              <%=f.hidden_field :r_did, :id=>"r_did",:value=> 0 %>
               <%= f.submit 'Checkout' , :id => 'calcRoute' , :class => 'btn btn-primary btn-lg', :onclick =>"#",  :required => 'required' %>
             </div>
 

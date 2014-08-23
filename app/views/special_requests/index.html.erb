@@ -1,0 +1,27 @@
+<h1>Listing special_requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Request type</th>
+      <th>Request value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @special_requests.each do |special_request| %>
+      <tr>
+        <td><%= special_request.request_type %></td>
+        <td><%= special_request.request_value %></td>
+        <td><%= link_to 'Show', special_request %></td>
+        <td><%= link_to 'Edit', edit_special_request_path(special_request) %></td>
+        <td><%= link_to 'Destroy', special_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Special request', new_special_request_path %>

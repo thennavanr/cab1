@@ -1934,7 +1934,7 @@ ul.social_icons li  a i{
 
 
 .gmap-big{
-    border: 10px solid #f6f5f0;
+    border: 5px solid #f6f5f0;
     box-shadow: 0px 0px 3px 3px #e7e4dc;
     overflow: hidden;
     position: relative;
@@ -1962,6 +1962,28 @@ ul.social_icons li  a i{
   font-weight: 300;
 }
 #contact-info-price .contact-form 
+.form-group label {
+  color: #4E4E4E;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+#contact-info-invoice .contact-form 
+.form-group h6{
+  color: #4E4E4E;
+  font-size: 16px;
+  font-weight: 300;
+  border-top: 1px solid;
+}
+#contact-info-invoice .contact-form 
+.form-group h5{
+  color: #4E4E4E;
+  font-size: 16px;
+  font-weight: 300;
+  border-bottom: 1px solid;
+}
+
+#contact-info-invoice .contact-form 
 .form-group label {
   color: #4E4E4E;
   font-size: 16px;

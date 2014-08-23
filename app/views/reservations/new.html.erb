@@ -18,8 +18,12 @@ zoom:12,
 /* set directions if address is given */
     
       var distanceInput1 = document.getElementById("distance1");
+      var distanceInput2 = document.getElementById("distance_hid");
+      var r_did = document.getElementById("r_did");
       var start = "<%= @reservation.from_add %>";
       var end = "<%= @reservation.to_add%>";
+      r_did.value = "<%= @reservation.id %>";
+
       if(start)
       {
         var request = {
@@ -33,6 +37,8 @@ zoom:12,
               directionsDisplay.setDirections(response);
               var dis = (response.routes[0].legs[0].distance.value / 1609.344).toFixed(1);
               distanceInput1.textContent = "Distance "+ dis + " Miles" ;
+              distanceInput2.value= dis; 
+
             }
           });
 
@@ -131,7 +137,7 @@ window.onload = function(){initialize();};
 <%= render "pricing" %>
 
 </section>
-<section>
+<section id= "contact-info-invoice">
 <%= render "invoice" %>
 </section>
 <!--

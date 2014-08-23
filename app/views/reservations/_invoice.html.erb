@@ -4,55 +4,54 @@
 </div>
 <div class="gmap-area" style= "background-image: url(<%=  asset_path "map.jpg" %> );" >
   <div class="container">
-    <div class="row">
-
-
+    <div class="row contact-wrap">
+      <div class ="contact-form">
+      
       <div class="col-sm-6 map-content">
-        <ul class="row">
-          <li class="col-sm-6">
-          <address>
-            <h5>Item</h5>
-            <p>Distance 55 Miles </p>
-          </address>
 
-          <li class="col-sm-6">
-          <address>
-            <h5>Amount</h5>
-            <p>$30.00</p>
-          </address>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class = "form-group">
+              <h5>Services</h5>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class = "form-group">
+              <h5>Price</h5>
+            </div>
+          </div>
+        </div>
+        
+      <% @reservation.special_requests.each do |d| %> 
+        <div class="row">
+          <div class="col-sm-6">
+            <div class = "form-group">
+              <label><%= d.request_type %></label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class = "form-group">
+              <label><%= d.price.to_s %></label>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
-          </li>
-        </ul>
-
-
-
-        <ul class="row">
-          <li class="col-sm-6">
-          <address>
-            <p>Child Seat</p>
-          </address>
-
-          <li class="col-sm-6">
-          <address>
-            <p>$10.00</p>
-          </address>
-          </li>
-        </ul>
-
-
-        <ul class="row">
-          <li class="col-sm-6">
-          <address>
-            <h5>Total</h5>
-          </address>
-
-          <li class="col-sm-6">
-          <address>
-            <h5>$40.00</h5>
-          </address>
-          </li>
-        </ul>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class = "form-group">
+              <h6>Total</h6>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class = "form-group">
+              <h6><%= @tot.to_s %></h6>
+            </div>
+          </div>
+        </div>
+        
       </div>
+    </div>
       <div class="col-sm-6 text-center">
         <input class="btn btn-primary btn-lg" id="calcRoute" name="commit" onclick="#" required="required" type="submit" value="Pay with PayPal">
       </div>
