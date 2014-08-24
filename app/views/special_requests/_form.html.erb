@@ -1,0 +1,25 @@
+<%= form_for(@special_request) do |f| %>
+  <% if @special_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@special_request.errors.count, "error") %> prohibited this special_request from being saved:</h2>
+
+      <ul>
+      <% @special_request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :request_type %><br>
+    <%= f.text_field :request_type %>
+  </div>
+  <div class="field">
+    <%= f.label :request_value %><br>
+    <%= f.text_field :request_value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

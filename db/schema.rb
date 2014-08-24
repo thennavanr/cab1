@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140816203758) do
+ActiveRecord::Schema.define(version: 20140822184936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,15 @@ ActiveRecord::Schema.define(version: 20140816203758) do
     t.boolean  "pet"
     t.string   "company_name"
     t.string   "hour"
+  end
+
+  create_table "special_requests", force: true do |t|
+    t.string   "request_type"
+    t.string   "request_value"
+    t.string   "reservation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "price",          precision: 8, scale: 2
   end
 
 end

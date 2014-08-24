@@ -128,12 +128,6 @@ body > section {
   animation-name: scaleIn;
 }
 
-
-.conditions{
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 400;
-}
 .lead{
   font-size: 16px;
   line-height: 24px;
@@ -668,7 +662,7 @@ input.search-form:hover {
 }
 
 #services {
-  background: #000 url(../assets/services/bg_services.png);
+  background: #000 url(../images/services/bg_services.png);
   background-size: cover;
 }
 
@@ -992,9 +986,7 @@ a.accordion-toggle  i{
 }
 
 #conatcat-info{
-  background: #fff url(../assets/contact.png) no-repeat 90% 0;
-
-
+  background: #fff url(../images/contact.png) no-repeat 90% 0;
   padding: 30px 0;
 }
 
@@ -1501,7 +1493,7 @@ ul.social_icons li  a i{
 }
 
 .clients-comments {
-    background-image: url("../assets/image_bg.png");
+    background-image: url("../images/image_bg.png");
     background-position: center 118px;
     background-repeat: no-repeat;
     margin-bottom: 100px;
@@ -1934,7 +1926,7 @@ ul.social_icons li  a i{
 
 
 .gmap-big{
-    border: 5px solid #f6f5f0;
+    border: 10px solid #f6f5f0;
     box-shadow: 0px 0px 3px 3px #e7e4dc;
     overflow: hidden;
     position: relative;
@@ -1962,28 +1954,6 @@ ul.social_icons li  a i{
   font-weight: 300;
 }
 #contact-info-price .contact-form 
-.form-group label {
-  color: #4E4E4E;
-  font-size: 16px;
-  font-weight: 300;
-}
-
-#contact-info-invoice .contact-form 
-.form-group h6{
-  color: #4E4E4E;
-  font-size: 16px;
-  font-weight: 300;
-  border-top: 1px solid;
-}
-#contact-info-invoice .contact-form 
-.form-group h5{
-  color: #4E4E4E;
-  font-size: 16px;
-  font-weight: 300;
-  border-bottom: 1px solid;
-}
-
-#contact-info-invoice .contact-form 
 .form-group label {
   color: #4E4E4E;
   font-size: 16px;
