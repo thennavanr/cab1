@@ -3,8 +3,6 @@ development:
   adapter: postgresql 
   database: cabDB
   pool: 5
-  username: postgres
-  password: aswini
   timeout: 5000
 production:
  adapter: postgresql
