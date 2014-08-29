@@ -1,3 +1,4 @@
+<section id="contact-info-invoice">
 <div class="center">                
   <h2>Checkout</h2>
   <p class="lead">Smyrna Vinings Airport cabs team is always available 24hrs a day, 7 days a week</p>
@@ -7,56 +8,61 @@
     <div class="row contact-wrap">
       <div class ="contact-form">
       
-      <div class="col-sm-6 map-content">
+      <div class="col-sm-9 map-content">
 
-        <div class="row">
-          <div class="col-sm-6">
-            <div class = "form-group">
-              <h5>Services</h5>
+        <div class="row" style="background:white;">
+          <div class="col-sm-10">
+            <div class = "form-group" style="color:#4E4E4E; line-height:24px;" >
+              Services
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class = "form-group">
-              <h5>Price</h5>
+          <div class="col-sm-2">
+            <div class = "form-group" style="color:#4E4E4E; line-height:24px;">
+              Price
             </div>
           </div>
         </div>
+       
         
-      <% @reservation.special_requests.each do |d| %> 
-        <div class="row">
-          <div class="col-sm-6">
-            <div class = "form-group">
+      <% @reservation.special_requests.each do |d| %>
+        <div class="row" style="background:white;">
+          <div class="col-sm-10" style="background:rgb(152, 228, 110);">
+            <div class = "form-group" style="color:#4E4E4E; line-height:24px;">
               <label><%= d.request_type %></label>
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class = "form-group">
+          
+          <div class="col-sm-2" style="background:rgb(152, 228, 110);">
+            <div class = "form-group" style="color:#4E4E4E; line-height:24px;">
               <label><%= d.price.to_s %></label>
             </div>
           </div>
         </div>
-      <% end %>
-
+        <% end %>
+        <div></div><hr/>
+      
         <div class="row">
-          <div class="col-sm-6">
-            <div class = "form-group">
-              <h6>Total</h6>
+          <div class="col-sm-10">
+            <div class = "form-group" style="font-size:17px; color:#4E4E4E; line-height:40px;">
+              <b>Total</b>
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class = "form-group">
-              <h6><%= @tot.to_s %></h6>
+          <div class="col-sm-2">
+            <div class = "form-group" style="font-size:17px; color:#4E4E4E; line-height:40px;">
+              <b><%= @tot.to_s %></b>
             </div>
           </div>
         </div>
         
       </div>
     </div>
-      <div class="col-sm-6 text-center">
+
+    
+      <div class="col-sm-3 text-center">
         <input class="btn btn-primary btn-lg" id="calcRoute" name="commit" onclick="#" required="required" type="submit" value="Pay with PayPal">
       </div>
 
-      <div class="col-sm-6 text-center">
+      <div class="col-sm-3 text-center">
         <img src=<%= asset_path "paypal_small.png"%> id="pay_pay_small" >
       </div>
     </div>
@@ -64,3 +70,4 @@
   </div>
 </div>
 </div>
+</section>

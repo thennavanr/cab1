@@ -45,12 +45,12 @@ class ReservationsController < ApplicationController
   end
   def add_tax tot
     tax = tot * 0.07
-    {:request_type =>'tax', :request_value => '7%', :price =>tax}
+    {:request_type =>'Tax', :request_value => '7%', :price =>tax}
   end
 
   def add_gratuity tot
     tax = tot * 0.18
-    {:request_type =>'gratuity', :request_value => '18%', :price =>tax}
+    {:request_type =>'Gratuity', :request_value => '18%', :price =>tax}
   end
 
   def get_total r 
@@ -62,31 +62,43 @@ class ReservationsController < ApplicationController
   end
 
   def add_pet
-    {:request_type =>'pet', :request_value => 'true', :price =>"10"}
+    {:request_type =>'Pets (Additional fee - $10)', :request_value => 'true', :price =>"10"}
   end
 
   def add_meet_greet
-    {:request_type =>'meet_greet', :request_value => 'true', :price =>"15"}
+    {:request_type =>'Meet and Greet at Baggage Claim (Additional fee - $15)', :request_value => 'true', :price =>"15"}
   end
 
   def add_surcharge
-    {:request_type =>'surcharge', :request_value => 'true', :price =>"10"}
+    {:request_type =>'Overnight Surcharge from Midnight to 5:00 am (Additional fee - $10)', :request_value => 'true', :price =>"10"}
   end
 
   def add_child_seat
-    {:request_type =>'child_seat', :request_value => 'true', :price =>"10"}
+    {:request_type =>'Child Seat (Additional fee - $10)', :request_value => 'true', :price =>"10"}
   end
 
   def add_distance d
     p = 10+(d.to_d*2)
-    {:request_type =>'distance', :request_value => d, :price =>p}
+    {:request_type =>'Distance for your Trip', :request_value => d, :price =>p}
   end
 
   def create_reservation
     @reservation = Reservation.new(reservation_params)
+
+    #respond_to do |format|
+    #if @reservation.save
+    #ReservationMailer.register_email(@reservation).deliver
+    #format.html { redirect_to(@reservation, :notice => 'User was successfully created.') }  
+    #format.xml  { render :xml => @reservation, :status => :created, :location => @reservation }  
+    #else  
+     # format.html { render :action => "new" }  
+     # format.xml  { render :xml => @reservation.errors, :status => :unprocessable_entity }  
+    #end  
+    
     @reservation.save
     puts "reservation saved successfully"
     session[:reservation_id] = @reservation.id
+    
   end
   def reservation_params 
     params.require(:reservation).permit!

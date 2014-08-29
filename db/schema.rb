@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 20140822184936) do
     t.string   "time"
     t.integer  "passengers"
     t.boolean  "meet_greet"
+    t.boolean  "over_night_surcharge"
     t.boolean  "child_seat"
     t.boolean  "pet"
-    t.boolean  "over_night_surcharge"
     t.string   "company_name"
     t.string   "hour"
   end
