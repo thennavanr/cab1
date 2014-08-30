@@ -7,16 +7,20 @@ class Reservation < ActiveRecord::Base
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,
-      :invoice => 55,
-
-      "amount_1" => 4,
-      "item_name_1" => 'distance',
-      "item_number_1" => 4,
-      "quantity_1" =>1 
-
-    }
+      :invoice =>id 
+    } 
+  
+    index = 1
+    special_requests.each do |item|
+      values.merge!( {
+      "amount_#{index}" => item.price.to_s,
+      "item_name_#{index}" => item.get_desc,
+      "item_number_#{index}" => index,
+      "quantity_#{index}" =>1 
+      })
+      index += 1
+    end
     "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
-
   end
 
 end

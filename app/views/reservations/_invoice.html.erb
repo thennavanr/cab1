@@ -1,4 +1,4 @@
-<section id="contact-info-invoice">
+<section style="padding-top: 70px;">
 <div class="center">                
   <h2>Checkout</h2>
   <p class="lead">Smyrna Vinings Airport cabs team is always available 24hrs a day, 7 days a week</p>
@@ -7,65 +7,53 @@
   <div class="container">
     <div class="row contact-wrap">
       <div class ="contact-form">
-      
-      <div class="col-sm-9 map-content">
 
-        <div class="row" style="background:white;">
-          <div class="col-sm-10">
-            <div class = "form-group" style="color:#4E4E4E; line-height:24px;" >
-              Services
+        <div class="col-sm-9 map-content">
+
+          <div class="row invoice-head">
+            <div class="col-sm-10">
+                Services
+            </div>
+            <div class="col-sm-2 price">
+              <label> Price</label>
             </div>
           </div>
-          <div class="col-sm-2">
-            <div class = "form-group" style="color:#4E4E4E; line-height:24px;">
-              Price
+
+
+          <% @reservation.special_requests.each do |d| %>
+            <div class="row invoice-item">
+              <div class="col-sm-10" >
+                <label><%= d.get_desc %></label>
+              </div>
+
+              <div class="col-sm-2 price">
+                <label><%= number_with_precision(d.price, :precision => 2) %></label>
+              </div>
+            </div>
+          <% end %>
+          <div></div>
+          <div class="row">
+            <div class="col-sm-10">
+              <label style="float:right;" >Total</label>
+            </div>
+            <div class="col-sm-2 price">
+              <label><%= @tot.to_s %></label>
             </div>
           </div>
+
         </div>
-       
-        
-      <% @reservation.special_requests.each do |d| %>
-        <div class="row" style="background:white;">
-          <div class="col-sm-10" style="background:rgb(152, 228, 110);">
-            <div class = "form-group" style="color:#4E4E4E; line-height:24px;">
-              <label><%= d.request_type %></label>
-            </div>
-          </div>
-          
-          <div class="col-sm-2" style="background:rgb(152, 228, 110);">
-            <div class = "form-group" style="color:#4E4E4E; line-height:24px;">
-              <label><%= d.price.to_s %></label>
-            </div>
-          </div>
-        </div>
-        <% end %>
-        <div></div><hr/>
-      
-        <div class="row">
-          <div class="col-sm-10">
-            <div class = "form-group" style="font-size:17px; color:#4E4E4E; line-height:40px;">
-              <b>Total</b>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <div class = "form-group" style="font-size:17px; color:#4E4E4E; line-height:40px;">
-              <b><%= @tot.to_s %></b>
-            </div>
-          </div>
-        </div>
-        
       </div>
-    </div>
 
-    
+
       <div class="col-sm-3 text-center">
-        <input class="btn btn-primary btn-lg" id="calcRoute" name="commit" onclick="#" required="required" type="submit" value="Pay with PayPal">
+        <input class="btn btn-primary btn-lg" id="pay_pal" name="commit" onclick="location.href='<%= "#{@reservation.paypal_url(root_url)}" %>';"   type="submit" value="Pay with PayPal">
       </div>
 
       <div class="col-sm-3 text-center">
         <img src=<%= asset_path "paypal_small.png"%> id="pay_pay_small" >
       </div>
     </div>
+
     <p class='conditions'>‡ Credit card information is never stored with us but with payment company that handles communication with the payment business<p>
   </div>
 </div>

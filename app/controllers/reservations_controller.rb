@@ -5,7 +5,9 @@ class ReservationsController < ApplicationController
   end
 
   def new
+    #session[:reservation_id] = 14
     @reservation = (session[:reservation_id] ? Reservation.find(session[:reservation_id]) : Reservation.new)
+    @anchor="" if @reservation.new_record?
     @anchor = "contact-info-price" if @reservation.id
     @anchor = "contact-info-invoice" if @reservation.special_requests.count > 0
     @tot = get_total @reservation
