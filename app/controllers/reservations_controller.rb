@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    #session[:reservation_id] = 20
+    session[:reservation_id] = 22
     @reservation = (session[:reservation_id] ? Reservation.find(session[:reservation_id]) : Reservation.new)
     @anchor="" if @reservation.new_record?
     @anchor = "contact-info-price" if @reservation.id
@@ -15,7 +15,6 @@ class ReservationsController < ApplicationController
     session[:reservation_id] = nil
   end
 def create 
-  binding.pry
     if params[:commit]  == 'Continue'
       create_reservation
     elsif params[:commit] == 'Checkout'
