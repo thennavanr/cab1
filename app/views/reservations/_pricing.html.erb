@@ -102,7 +102,7 @@
 
           <div class="form-group">
             <%= f.label ("Type of Service") %>
-            <%= f.select 'passengers', options_for_select([['Point-to-Point',1],['Round Trip',2],['Hourly',3]],1),{}, {:class =>'form-control'} %>
+            <%= f.select 'passengers', options_for_select([['Point-to-Point',1],['Round Trip',2],['Hourly',3]],1),{}, {:class =>'form-control', :id=>'reservation_passengers'} %>
           </div>
 
           <div class ="row">

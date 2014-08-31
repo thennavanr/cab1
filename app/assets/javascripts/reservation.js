@@ -1,51 +1,33 @@
 $(document).ready(function() {
-      $('#onewayfrom1').hide();
       $('#onewayfrom2').hide();
       $('#onewayfrom3').hide();
       $('#onewayfrom4').hide();
+      
 
       $('#reservation_passengers').change(function(){
-        if($('#reservation_passengers option:selected').val()=="2"){
-        $('#onewayfrom1').show();
+        if($('#reservation_passengers option:selected').val()=="1"){
+        $('#onewayfrom2').hide();
+        $('#onewayfrom3').hide();
+        $('#onewayfrom4').hide();
+        }
+        else if($('#reservation_passengers option:selected').val()=="2")
+        {
         $('#onewayfrom2').show();
         $('#onewayfrom3').show();
         $('#onewayfrom4').show();
         }
         else if($('#reservation_passengers option:selected').val()=="3")
         {
-        $('#onewayfrom1').show();
-        $('#onewayfrom2').show();
-        $('#onewayfrom3').show();
-        $('#onewayfrom4').show();
-        }
-        else if($('#reservation_passengers option:selected').val()=="4")
-        {
-        $('#onewayfrom1').show();
-        $('#onewayfrom2').show();
-        $('#onewayfrom3').show();
-        $('#onewayfrom4').show();
-        }
-        else if($('#reservation_passengers option:selected').val()=="5")
-        {
-          $('#onewayfrom1').show();
-          $('#onewayfrom2').show();
-          $('#onewayfrom3').show();
-          $('#onewayfrom4').show();
-        }
-        else if($('#reservation_passengers option:selected').val()=="6")
-        {
-          $('#onewayfrom1').show();
-          $('#onewayfrom2').show();
-          $('#onewayfrom3').show();
-          $('#onewayfrom4').show();
+        $('#onewayfrom2').hide();
+        $('#onewayfrom3').hide();
+        $('#onewayfrom4').hide();
         }
         else
         {
 
-          $('#onewayfrom1').hide();
-          $('#onewayfrom2').hide();
-          $('#onewayfrom3').hide();
-          $('#onewayfrom4').hide();
+        $('#onewayfrom2').hide();
+        $('#onewayfrom3').hide();
+        $('#onewayfrom4').hide();
         }
 
       });
