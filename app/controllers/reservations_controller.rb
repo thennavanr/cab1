@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    #session[:reservation_id] = 14
+    #session[:reservation_id] = 20
     @reservation = (session[:reservation_id] ? Reservation.find(session[:reservation_id]) : Reservation.new)
     @anchor="" if @reservation.new_record?
     @anchor = "contact-info-price" if @reservation.id
@@ -14,8 +14,8 @@ class ReservationsController < ApplicationController
 
     session[:reservation_id] = nil
   end
-
-  def create
+def create 
+  #binding.pry
     if params[:commit]  == 'Continue'
       create_reservation
     elsif params[:commit] == 'Checkout'
@@ -32,11 +32,16 @@ class ReservationsController < ApplicationController
     if r_id
       @reservation = Reservation.find(r_id)
       session[:reservation_id] = @reservation.id
+
       @reservation.special_requests.new(add_distance distance) if distance
       @reservation.special_requests.new(add_pet) unless reservation_params[:pet] == "0"
       @reservation.special_requests.new(add_meet_greet) unless reservation_params[:meet_greet] == "0"
       @reservation.special_requests.new(add_surcharge) unless reservation_params[:over_night_surcharge] == "0"
       @reservation.special_requests.new(add_child_seat) unless reservation_params[:child_seat] == "0"
+
+      @reservation.special_requests.new(add_vechile reservation_params[:vechile])
+      @reservation.special_requests.new(add_passengers reservation_params[:passengers])
+
       total = get_total @reservation
       @reservation.special_requests.new(add_tax total) if total
       total = get_total @reservation
@@ -45,6 +50,15 @@ class ReservationsController < ApplicationController
     end
 
   end
+
+  def add_passengers val
+    {:request_type =>'Number of Passengers', :request_value =>val, :price =>0}
+  end
+
+  def add_vechile val
+    {:request_type =>'Vechile Type', :request_value =>val, :price =>0}
+  end
+
   def add_tax tot
     tax = tot * 0.07
     {:request_type =>'Tax', :request_value => '7%', :price =>tax}
