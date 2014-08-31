@@ -9,19 +9,17 @@
 
       <%= form_for @reservation, :url => reservations_path(@reservation, :anchor => 'special_request'), :html => {:id => 'main-contact-form' , :class => 'contact-form' , :name => 'reservation-form' , :method => 'post' } do |f| %>
         <div class="col-sm-5 col-sm-offset-1">
-
-
           <div class ="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <%= f.label :Vehicle %>
-                <%= f.select 'vechile', options_for_select([['Sedan',1],['SUV',2],['Van',3],['Limosine',4],['Streched Limosine',5]],2),{}, {:class =>'form-control'}  %>
+                <%= f.select 'vechile', options_for_select([['Sedan',1],['SUV',2],['Van',3],['Limosine',4],['Streched Limosine',5]],@reservation.get_vechile_type),{}, {:class =>'form-control'}  %>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <%= f.label :Passengers%>
-                <%= f.select 'passengers', options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5],['6',6],['7',7],['8',8],['9+',9]],1),{}, {:class =>'form-control'}  %>
+                <%= f.select 'passengers', options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5],['6',6],['7',7],['8',8],['9+',9]],@reservation.get_no_passengers),{}, {:class =>'form-control'}  %>
               </div>
             </div>
           </div> <!--row-->
@@ -35,7 +33,7 @@
             </div>
             <div class="col-sm-3">
               <div class="onoffswitch">
-                <%= f.check_box :meet_greet , {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
+                <%= f.check_box :meet_greet , {:class =>'onoffswitch-checkbox',:checked => @reservation.meet_greet?} %>
                 <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'reservation_meet_greet' do %>
                   <span class="onoffswitch-inner"></span>
                   <span class="onoffswitch-switch"></span>
@@ -53,7 +51,7 @@
 
             <div class="col-sm-3">
               <div class="onoffswitch">
-                <%= f.check_box ('over_night_surcharge'), {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
+                <%= f.check_box ('over_night_surcharge'), {:class =>'onoffswitch-checkbox', :checked => @reservation.surcharge? } %>
                 <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'reservation_over_night_surcharge' do %>
                   <span class="onoffswitch-inner"></span>
                   <span class="onoffswitch-switch"></span>
@@ -72,7 +70,7 @@
             </div>
             <div class="col-sm-3">
               <div class="onoffswitch">
-                <%= f.check_box :child_seat, {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
+                <%= f.check_box :child_seat, {:class =>'onoffswitch-checkbox', :checked => @reservation.child_seat?} %>
                 <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'reservation_child_seat' do %>
                   <span class="onoffswitch-inner"></span>
                   <span class="onoffswitch-switch"></span>
@@ -90,7 +88,7 @@
             </div>
             <div class="col-sm-3">
               <div class="onoffswitch">
-                <%= f.check_box :pet, {:class =>'onoffswitch-checkbox'} , :name=>'onoffswitch' , :id =>'myonoffswitch', :checked=>'checked' %>
+                <%= f.check_box :pet, {:class =>'onoffswitch-checkbox', :checked => @reservation.pets?} %>
                 <%= f.label ("yes") , { :class=>'onoffswitch-label'} , :for=>'reservation_pet' do %>
                   <span class="onoffswitch-inner"></span>
                   <span class="onoffswitch-switch"></span>
@@ -102,7 +100,7 @@
 
           <div class="form-group">
             <%= f.label ("Type of Service") %>
-            <%= f.select 'passengers', options_for_select([['Point-to-Point',1],['Round Trip',2],['Hourly',3]],1),{}, {:class =>'form-control'} %>
+            <%= f.select 'service_type', options_for_select([['Point-to-Point',1],['Round Trip',2],['Hourly',3]],1),{}, {:class =>'form-control'} %>
           </div>
 
           <div class ="row">
