@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
-#   session[:reservation_id] = 22
+    session[:reservation_id] = 22
     @reservation = (session[:reservation_id] ? Reservation.find(session[:reservation_id]) : Reservation.new)
     @anchor="" if @reservation.new_record?
     @anchor = "contact-info-price" if @reservation.id
@@ -16,14 +16,14 @@ class ReservationsController < ApplicationController
 
   def create 
     session[:errors] = nil
-    if params[:commit]  == 'Continue'
+    if params[:commit]  == 'Continue' || params[:commit]  == 'Book'
       create_reservation
     elsif params[:commit] == 'Checkout'
       update_spl_requests
     end
     @errors = @reservation.errors.messages
     flash.keep
-    redirect_to :action => 'new', :flash => { :new_solution_errors => 'test'}
+    redirect_to :action => 'new'
   end
 
   private
@@ -33,7 +33,6 @@ class ReservationsController < ApplicationController
     puts "reservation saved successfully"
     session[:reservation_id] = @reservation.id
     session[:errors] = @reservation.errors.messages if @reservation.errors
-    binding.pry
   end
 
   def update_spl_requests 

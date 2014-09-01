@@ -172,9 +172,9 @@ ga('send', 'pageview');            // Sends a pageview hit.
                     <div class="widget">
                         <h3>Company</h3>
                         <ul>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Meet the team</a></li>
-                            <li><a href="#">Our Services</a></li>
+                            <li><%= link_to "About Us", new_about_path %></li>
+                            <li><%= link_to "Meet the team", "#{new_about_path}#meet-team-info" %></li>
+                            <li><%= link_to "Services", new_service_path %></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
@@ -183,8 +183,8 @@ ga('send', 'pageview');            // Sends a pageview hit.
                     <div class="widget">
                         <h3>Support</h3>
                         <ul>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">Booking</a></li>
+                            <li><%= link_to "Contact", new_contact_path %></li>
+                            <li><%= link_to "Booking", "#{new_reservation_path}#contact-page" %></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
