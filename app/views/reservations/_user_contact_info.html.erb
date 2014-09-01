@@ -4,6 +4,23 @@
     <h2>Want to Book a Cab?</h2>
     <p class="lead">At Smyrna Vinings Airport Cabs, we dedicated to getting you to your destination <br>safely and comfortably at a price you can afford</p>
   </div>
+  
+  <div class="row contact-wrap"> 
+      <div class="col-sm-12 col-sm-offset-1">
+        <% binding.pry; if session[:errors] %>
+          <div id="error_explanation">
+            <h2><%= pluralize(session[:errors].count, "error") %> prohibited this Booking:</h2>
+            <ul>
+              <% session[:errors].each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <% session[:errors] = nil %>
+      </div>
+
+  </div>
   <div class="row contact-wrap"> 
 
     <%= form_for @reservation, :url => reservations_path, :html => {:id => 'main-contact-form' , :class => 'contact-form' , :name => 'contact-form' , :method => 'post' } do |f| %>

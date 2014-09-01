@@ -50,7 +50,7 @@
 
 
       <div class="col-sm-3 text-center">
-        <input class="btn btn-primary btn-lg" id="pay_pal" name="commit" onclick="location.href='<%= "#{@reservation.paypal_url(root_url)}" %>';"   type="submit" value="Pay with PayPal">
+        <input class="btn btn-primary btn-lg" id="pay_pal" name="commit" onclick="location.href='<%= "#{@reservation.paypal_url(reservations_show_path(@reservation.id))}" %>';"   type="submit" value="Pay with PayPal">
       </div>
 
       <div class="col-sm-3 text-center">

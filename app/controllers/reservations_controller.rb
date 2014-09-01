@@ -5,26 +5,37 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    session[:reservation_id] = 22
+#   session[:reservation_id] = 22
     @reservation = (session[:reservation_id] ? Reservation.find(session[:reservation_id]) : Reservation.new)
     @anchor="" if @reservation.new_record?
     @anchor = "contact-info-price" if @reservation.id
     @anchor = "contact-info-invoice" if @reservation.special_requests.count > 0
     @tot = get_total @reservation
-
     session[:reservation_id] = nil
   end
-def create 
+
+  def create 
+    session[:errors] = nil
     if params[:commit]  == 'Continue'
       create_reservation
     elsif params[:commit] == 'Checkout'
       update_spl_requests
     end
-    redirect_to :action => 'new' 
+    @errors = @reservation.errors.messages
+    flash.keep
+    redirect_to :action => 'new', :flash => { :new_solution_errors => 'test'}
   end
 
   private
-  
+  def create_reservation
+    @reservation = Reservation.new(reservation_params)
+    @reservation.save
+    puts "reservation saved successfully"
+    session[:reservation_id] = @reservation.id
+    session[:errors] = @reservation.errors.messages if @reservation.errors
+    binding.pry
+  end
+
   def update_spl_requests 
     r_id = reservation_params[:r_did]
     distance = reservation_params[:distance2]
@@ -47,7 +58,6 @@ def create
       @reservation.special_requests.new(add_gratuity total) if total
       @reservation.save!
     end
-
   end
 
   def add_passengers val
@@ -95,25 +105,6 @@ def create
   def add_distance d
     p = 10+(d.to_d*2)
     {:request_type =>'Distance for your Trip', :request_value => d, :price =>p}
-  end
-
-  def create_reservation
-    @reservation = Reservation.new(reservation_params)
-
-    #respond_to do |format|
-    #if @reservation.save
-    #ReservationMailer.register_email(@reservation).deliver
-    #format.html { redirect_to(@reservation, :notice => 'User was successfully created.') }  
-    #format.xml  { render :xml => @reservation, :status => :created, :location => @reservation }  
-    #else  
-     # format.html { render :action => "new" }  
-     # format.xml  { render :xml => @reservation.errors, :status => :unprocessable_entity }  
-    #end  
-    
-    @reservation.save
-    puts "reservation saved successfully"
-    session[:reservation_id] = @reservation.id
-    
   end
   def reservation_params 
     params.require(:reservation).permit!

@@ -42,7 +42,28 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+
     <!-- Google Analytics -->
+    <script>
+      function hasHtml5Validation () {
+         return typeof document.createElement('input').checkValidity === 'function';
+       }
+
+       if (hasHtml5Validation()) {
+         $('.validate-form').submit(function (e) {
+           if (!this.checkValidity()) {
+             // Prevent default stops form from firing
+             e.preventDefault();
+             $(this).addClass('invalid');
+             $('#status').html('invalid');
+             } else {
+             $(this).removeClass('invalid');
+             $('#status').html('submitted');
+           }
+         });
+       }
+    </script>
 <script>
 /**
  * Creates a temporary global ga object and loads analy  tics.js.

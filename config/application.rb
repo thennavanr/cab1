@@ -10,12 +10,13 @@ module Cab1
   class Application < Rails::Application
     config.assets.enabled = true
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
-    
-
     config.assets.precompile += %w(.svg .eot .woff .ttf)
     config.serve_static_assets = true
 
     config.assets.precompile += %w(reservation.js)
+
+    # add custom validators path
+    config.autoload_paths += %W["#{config.root}/app/validators/"]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

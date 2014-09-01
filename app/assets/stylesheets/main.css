@@ -2599,3 +2599,10 @@ shortcodes page css
   display: inline-block;
   margin-left: 15px;
 }
+
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+    }
