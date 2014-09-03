@@ -12,7 +12,6 @@ module Cab1
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.assets.precompile += %w(.svg .eot .woff .ttf)
     config.serve_static_assets = true
-
     config.assets.precompile += %w(reservation.js)
 
     # add custom validators path
