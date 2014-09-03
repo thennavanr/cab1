@@ -9,7 +9,7 @@ class Reservation < ActiveRecord::Base
     if  special_requests.exists?(['request_type LIKE ?', "%Vechile%"])
       special_requests.find_by(['request_type LIKE ?', "%Vechile%"]).request_value
     else
-      2
+      1
     end
   end
 def get_no_passengers

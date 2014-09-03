@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
-#   session[:reservation_id] = 22
+   session[:reservation_id] = 22
     @reservation = (session[:reservation_id] ? Reservation.find(session[:reservation_id]) : Reservation.new)
     @anchor="" if @reservation.new_record?
     @anchor = "contact-info-price" if @reservation.id
@@ -26,7 +26,7 @@ class ReservationsController < ApplicationController
     redirect_to :action => 'new'
   end
 
-  private
+private
   def create_reservation
     @reservation = Reservation.new(reservation_params)
     @reservation.save
@@ -60,11 +60,15 @@ class ReservationsController < ApplicationController
   end
 
   def add_passengers val
-    {:request_type =>'Number of Passengers', :request_value =>val, :price =>0}
+    p = 0
+    p = p*5 if val >1
+    {:request_type =>'Number of Passengers', :request_value =>val, :price =>p}
   end
 
   def add_vechile val
-    {:request_type =>'Vechile Type', :request_value =>val, :price =>0}
+    p = 0
+    p = 25 if val == 2
+    {:request_type =>'Vechile Type', :request_value =>val, :price =>p}
   end
 
   def add_tax tot

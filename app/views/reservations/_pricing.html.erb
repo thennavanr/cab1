@@ -13,7 +13,7 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <%= f.label :Vehicle %>
-                <%= f.select 'vechile', options_for_select([['Sedan',1],['SUV',2],['Van',3],['Limosine',4],['Streched Limosine',5]],@reservation.get_vechile_type),{}, {:class =>'form-control'}  %>
+                <%= f.select 'vechile', options_for_select([['Sedan',1],['SUV',2],['Van',3],['Limosine',4]],@reservation.get_vechile_type),{}, {:class =>'form-control'}  %>
               </div>
             </div>
             <div class="col-sm-6">
