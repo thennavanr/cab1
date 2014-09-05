@@ -64,14 +64,15 @@ private
 
   def add_passengers val
     p = 0
-    p = p*5 if val >1
+    p = (val.to_i-1) * 5 if val.to_i  > 1
     {:request_type =>'Number of Passengers', :request_value =>val, :price =>p}
   end
 
   def add_vechile val
     p = 0
-    p = 25 if val == 2
-    {:request_type =>'Vechile Type', :request_value =>val, :price =>p}
+    binding.pry
+    p = 25 if val.to_i == 2
+    {:request_type =>'Additional Charge for SUV', :request_value =>val, :price =>p}
   end
 
   def add_tax tot
