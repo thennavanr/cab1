@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   get 'services/show'
 
   get 'about/show'
-  get 'reservations/show'
-
-
+  get 'terms_and_conditions/show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
