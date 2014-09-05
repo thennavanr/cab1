@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="col-sm-2 price">
-                  <label><%= number_with_precision(d.price, :precision => 2) %></label>
+                  <label>$<%= number_with_precision(d.price, :precision => 2) %></label>
                 </div>
               </div>
             <% end %>
@@ -41,7 +41,7 @@
               <label style="float:right;" >Total</label>
             </div>
             <div class="col-sm-2 price">
-              <label><%= @tot.to_s %></label>
+              <label>$<%= @tot.to_s %></label>
             </div>
           </div>
 
@@ -50,8 +50,10 @@
 
 
       <div class="col-sm-3 text-center">
+
         <% return_url = "#{root_url}reservations/#{@reservation.id}" %>
         <input class="btn btn-primary btn-lg" id="pay_pal" name="commit" onclick="location.href='<%= "#{@reservation.paypal_url(return_url)}" %>';"   type="submit" value="Pay with PayPal">
+        
       </div>
 
       <div class="col-sm-3 text-center">

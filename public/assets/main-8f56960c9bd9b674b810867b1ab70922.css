@@ -128,6 +128,12 @@ body > section {
   animation-name: scaleIn;
 }
 
+
+.conditions{
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+}
 .lead{
   font-size: 16px;
   line-height: 24px;
@@ -196,6 +202,11 @@ body > section {
 .top-number p{
   margin: 0
 }
+
+.top-number a[href^=tel]{
+  color:white
+}
+
 
 .social{
   text-align: right;
@@ -372,8 +383,12 @@ input.search-form:hover {
   padding: 0;
 }
 
-#main-slider .carousel .carousel-content {
-  margin-top: 150px;
+#main-slider .carousel .carousel-content label{
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+
 }
 
 #main-slider .carousel .slide-margin{
@@ -391,6 +406,7 @@ input.search-form:hover {
   border-radius: 4px;
   margin-top: 25px;
   display: inline-block;
+  border:none;
 }
 
 #main-slider .carousel .slider-img{
@@ -542,6 +558,24 @@ input.search-form:hover {
   padding: 0;
 }
 
+.invoice-head{
+  border-bottom: 2px solid black;
+  font-weight: bold;
+}
+.invoice-item{
+  border-bottom: 1px solid lightblue;
+}
+.invoice-item label{
+  margin-top: 5px;
+  font-weight :300;
+}
+.price label{
+  float: right;
+  margin-right: 10px;
+
+}
+
+
 .feature-wrap {
   margin-bottom: 35px;
   overflow: hidden;
@@ -652,7 +686,7 @@ input.search-form:hover {
 }
 
 #services {
-  background: #000 url(../images/services/bg_services.png);
+  background: #000 url(../assets/services/bg_services.png);
   background-size: cover;
 }
 
@@ -949,7 +983,7 @@ a.accordion-toggle  i{
 }
 
 #partner {
-  background: url(../images/partners/partner_bg.png) 50% 50% no-repeat;
+  background: url(../assets/partners/partner_bg.png) 50% 50% no-repeat;
   background-size: cover;
 }
 
@@ -976,7 +1010,9 @@ a.accordion-toggle  i{
 }
 
 #conatcat-info{
-  background: #fff url(../images/contact.png) no-repeat 90% 0;
+  background: #fff url(../assets/contact.png) no-repeat 90% 0;
+
+
   padding: 30px 0;
 }
 
@@ -1483,7 +1519,7 @@ ul.social_icons li  a i{
 }
 
 .clients-comments {
-    background-image: url("../images/image_bg.png");
+    background-image: url("../assets/image_bg.png");
     background-position: center 118px;
     background-repeat: no-repeat;
     margin-bottom: 100px;
@@ -1916,14 +1952,12 @@ ul.social_icons li  a i{
 
 
 .gmap-big{
-    border: 10px solid #f6f5f0;
-    border-radius: 60%;
-    height: 350px;
-    width: 350px;
+    border: 5px solid #f6f5f0;
     box-shadow: 0px 0px 3px 3px #e7e4dc;
     overflow: hidden;
     position: relative;
     margin: 0 auto;
+    border-radius: 4px;
 }
 
 .gmap-area .map-content ul {
@@ -1940,6 +1974,34 @@ ul.social_icons li  a i{
 }
 
 #contact-page .contact-form 
+.form-group label {
+  color: #4E4E4E;
+  font-size: 16px;
+  font-weight: 300;
+}
+#contact-info-price .contact-form 
+.form-group label {
+  color: #4E4E4E;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+#contact-info-invoice .contact-form 
+.form-group h6{
+  color: #4E4E4E;
+  font-size: 16px;
+  font-weight: 300;
+  border-top: 1px solid;
+}
+#contact-info-invoice .contact-form 
+.form-group h5{
+  color: #4E4E4E;
+  font-size: 16px;
+  font-weight: 300;
+  border-bottom: 1px solid;
+}
+
+#contact-info-invoice .contact-form 
 .form-group label {
   color: #4E4E4E;
   font-size: 16px;
@@ -2539,7 +2601,19 @@ shortcodes page css
 }
 
 
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+    }
 
 
-
-
+    /* .invalid class prevents CSS from automatically applying */
+    .invalid input:required:invalid {
+        background: #BE4C54;
+      }
+       
+      /* Mark valid inputs during .invalid state */
+      .invalid input:required:valid {
+          background: #17D654 ;
+      

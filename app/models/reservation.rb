@@ -1,4 +1,8 @@
 class Reservation < ActiveRecord::Base
+  validates :name,:from_add,:to_add,:pickup_date,  presence:true
+   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+   validates_format_of :phone, :with => /\A(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}\Z/i
+
   has_many :special_requests
   
   
@@ -7,7 +11,7 @@ class Reservation < ActiveRecord::Base
     if  special_requests.exists?(['request_type LIKE ?', "%Vechile%"])
       special_requests.find_by(['request_type LIKE ?', "%Vechile%"]).request_value
     else
-      2
+      1
     end
   end
 def get_no_passengers
@@ -48,7 +52,6 @@ end
       values.merge!( {
       "amount_#{index}" => item.price.to_s,
       "item_name_#{index}" => item.get_desc,
-      "item_number_#{index}" => index,
       "quantity_#{index}" =>1 
       })
       index += 1
