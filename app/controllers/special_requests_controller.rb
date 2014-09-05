@@ -10,6 +10,7 @@ class SpecialRequestsController < ApplicationController
   # GET /special_requests/1
   # GET /special_requests/1.json
   def show
+    
   end
 
   # GET /special_requests/new

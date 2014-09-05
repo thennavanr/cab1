@@ -1,5 +1,7 @@
 class Reservation < ActiveRecord::Base
   has_many :special_requests
+  
+  
 
   def get_vechile_type
     if  special_requests.exists?(['request_type LIKE ?', "%Vechile%"])

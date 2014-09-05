@@ -1,11 +1,13 @@
 class ReservationsController < ApplicationController
   @cart_ready
   def show
-    @reservations = Reservation.find(params[:id])
+    @reservation = Reservation.find(params[:id])
+
+
   end
 
   def new
-    #session[:reservation_id] = 22
+    #session[:reservation_id] = 23
     @reservation = (session[:reservation_id] ? Reservation.find(session[:reservation_id]) : Reservation.new)
     @anchor="" if @reservation.new_record?
     @anchor = "contact-info-price" if @reservation.id

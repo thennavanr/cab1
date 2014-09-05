@@ -1,6 +1,15 @@
-<section id="contact-info">
-<div class="center">                
-  <h2>Your Reservation is Successful</h2>
-  <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+<section>
+<div class="center"> 
+ 
+  <h2>Your Reservation Saved Sucessfully!</h2>
+  
+
+ <% if @reservation.special_requests.count > 0 %>
+<%= render "pay_cart" %>
+<% end %>
+  
+  <p class="lead"></p>
+  <p> 
+</p>
 </div>
-</sections>
+</section>
