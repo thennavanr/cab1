@@ -2,8 +2,7 @@ class ReservationsController < ApplicationController
   @cart_ready
   def show
     @reservation = Reservation.find(params[:id])
-
-
+    @tot = get_total @reservation
   end
 
   def new
