@@ -23,6 +23,9 @@ Rails.application.routes.draw do
 
   get 'sitemap.xml', :to => 'sitemap#index', :defaults => { :format => 'xml' }
 
+  match '/robots.:format' => 'sites#robots'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
