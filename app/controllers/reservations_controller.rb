@@ -1,14 +1,14 @@
 class ReservationsController < ApplicationController
   @cart_ready
   def show
-    @reservation = Reservation.find(params[:id])
+    @reservation = Reservation.find_by_rid(params[:id])
     @tot = get_total @reservation
   end
 
   def new
 
     #  session[:reservation_id] = 22
-    @reservation = (session[:reservation_id] ? Reservation.find(session[:reservation_id]) : Reservation.new)
+    @reservation = (session[:reservation_id] ? Reservation.find_by_rid(session[:reservation_id]) : Reservation.new)
     @anchor="" if @reservation.new_record?
     @anchor = "contact-info-price" if @reservation.id
     @anchor = "contact-info-invoice" if @reservation.special_requests.count > 0
@@ -33,16 +33,16 @@ private
     @reservation = Reservation.new(reservation_params)
     @reservation.save
     puts "reservation saved successfully"
-    session[:reservation_id] = @reservation.id
+    session[:reservation_id] = @reservation.rid
     session[:errors] = @reservation.errors.messages if @reservation.errors
   end
 
   def update_spl_requests 
-    r_id = reservation_params[:r_did]
+    rid = reservation_params[:rid]
     distance = reservation_params[:distance2]
-    if r_id
-      @reservation = Reservation.find(r_id)
-      session[:reservation_id] = @reservation.id
+    if rid
+      @reservation = Reservation.find_by_rid(rid)
+      session[:reservation_id] = @reservation.rid
 
       @reservation.special_requests.new(add_distance distance) if distance
       @reservation.special_requests.new(add_pet) unless reservation_params[:pet] == "0"

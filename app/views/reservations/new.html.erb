@@ -30,10 +30,10 @@ zoom:12,
     
       var distanceInput1 = document.getElementById("distance1");
       var distanceInput2 = document.getElementById("distance_hid");
-      var r_did = document.getElementById("r_did");
+      var rid = document.getElementById("rid");
       var start = "<%= @reservation.from_add %>";
       var end = "<%= @reservation.to_add%>";
-      r_did.value = "<%= @reservation.id %>";
+      rid.value = "<%= @reservation.rid %>";
 
       if(start)
       {
