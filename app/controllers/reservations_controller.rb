@@ -57,7 +57,9 @@ private
       @reservation.special_requests.new(add_tax total) if total
       total = get_total @reservation
       @reservation.special_requests.new(add_gratuity total) if total
-      @reservation.save!
+      if @reservation.save
+      ReservationMailer.register_email(@reservation).deliver
+      end
     end
   end
 

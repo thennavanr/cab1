@@ -2,7 +2,7 @@
 <head>
   <!-testing!>
 
-  <title></title>
+  <title>Registration Confirmation</title>
 </head>
 <body>
 <p style="text-align: right;"><strong>Call <a href="tel:770.572.6900" target="_blank" value="+17705726900">770.572.6900</a>&nbsp;if any changes in your reservation</strong></p>
@@ -20,11 +20,22 @@
 
 <p>Pick-up Address :  <%= @reservation.from_add %></p>
 
-
 <p>Drop-off Address:  <%=  @reservation.to_add %></p>
-
-<p>Vehicle Type:  <%= @reservation.vechile %></p>
-
+<table>
+<% @reservation.special_requests.each do |d| %>
+            <% if d.price > 0 %>
+            
+              <tr>
+                <td >
+                  <label><%= d.get_desc %></label>
+                </td>
+                <td>
+                  <label>$<%= number_with_precision(d.price, :precision => 2) %></label>
+                </td>
+              </tr>
+            <% end %>
+<% end %>
+</table>
 <hr />
 <p>&nbsp;</p>
 </body>
