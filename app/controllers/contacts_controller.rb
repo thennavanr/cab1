@@ -22,8 +22,10 @@ class ContactsController < ApplicationController
         
   end
   
-def index
-end
+  def index 
+    @contact = Contact.new
+    render 'new'
+  end
 
 
 private
