@@ -20,7 +20,7 @@ Rails.application.routes.draw do
    resources :home
    resources :services
    resources :offers
-
+   resources :payment_notifications 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
