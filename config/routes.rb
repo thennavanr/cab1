@@ -21,6 +21,8 @@ Rails.application.routes.draw do
    resources :services
    resources :offers
 
+  get 'sitemap.xml', :to => 'sitemap#index', :defaults => { :format => 'xml' }
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

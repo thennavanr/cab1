@@ -58,7 +58,9 @@ private
       @reservation.special_requests.new(add_tax total) if total
       total = get_total @reservation
       @reservation.special_requests.new(add_gratuity total) if total
-      @reservation.save!
+      if @reservation.save
+      ReservationMailer.register_email(@reservation).deliver
+      end
     end
   end
 
@@ -70,7 +72,6 @@ private
 
   def add_vechile val
     p = 0
-    binding.pry
     p = 25 if val.to_i == 2
     {:request_type =>'Additional Charge for SUV', :request_value =>val, :price =>p}
   end
