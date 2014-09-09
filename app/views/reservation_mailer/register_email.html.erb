@@ -21,22 +21,38 @@
 <p>Pick-up Address :  <%= @reservation.from_add %></p>
 
 <p>Drop-off Address:  <%=  @reservation.to_add %></p>
+
 <table>
-<% @reservation.special_requests.each do |d| %>
-            <% if d.price > 0 %>
-            
-              <tr>
-                <td >
-                  <label><%= d.get_desc %></label>
-                </td>
-                <td>
-                  <label>$<%= number_with_precision(d.price, :precision => 2) %></label>
-                </td>
-              </tr>
-            <% end %>
-<% end %>
+  <tr style="background-color: lightblue;" >
+    <td>Service</td>
+    <td>Price</td>
+    </tr>
+  <%  @reservation.special_requests.each do |d| %>
+    <% if d.price > 0 %>
+
+      <tr>
+        <td >
+          <label><%= d.get_desc %></label>
+        </td>
+        <td>
+          <label>$<%= number_with_precision(d.price, :precision => 2) %></label>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+
+      <tr>
+        <td >
+          <label>Total</label>
+        </td>
+        <td>
+          <label>$<%= number_with_precision(@reservation.get_total.to_s, :precision => 2) %></label>
+        </td>
+      </tr>
+
+
+  
 </table>
-<hr />
 <p>&nbsp;</p>
 
 </body>

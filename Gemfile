@@ -15,6 +15,7 @@ gem 'spring',        group: :development
 gem 'rails_12factor', group: :production
 
 group :development do
+  gem "mail_view", "~> 2.0.4"
   gem "better_errors"
   gem "binding_of_caller"
   gem 'pry' 

@@ -21,4 +21,8 @@ Rails.application.routes.draw do
 
   get '/robots.:format' => 'sites#robots'
 
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
+
 end

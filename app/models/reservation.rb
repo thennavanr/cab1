@@ -7,6 +7,13 @@ class Reservation < ActiveRecord::Base
   has_many :special_requests
 
 
+  def get_total  
+    s = 0
+    special_requests.each do |d|
+      s=s+d.price
+    end
+    s
+  end
 
   def get_vechile_type
     if  special_requests.exists?(['request_type LIKE ?', "%Vechile%"])
