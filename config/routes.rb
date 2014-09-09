@@ -21,5 +21,4 @@ Rails.application.routes.draw do
 
   get '/robots.:format' => 'sites#robots'
 
-
 end

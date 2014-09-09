@@ -1,5 +1,12 @@
 <html>
 <head>
+<script type="text/javascript"> 
+  $(function(){
+$("#from_address").geocomplete()
+$("#to_address").geocomplete()
+});
+</script>
+
 <% if @anchor %>
   <script type="text/javascript">
     window.location.hash = "<%= @anchor %>";
@@ -73,7 +80,6 @@ directionsService.route(request, function(response, status) {
 });
 
 }); 
-
 
 
 window.onload = function(){initialize();};
