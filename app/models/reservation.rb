@@ -15,6 +15,10 @@ class Reservation < ActiveRecord::Base
     s
   end
 
+  def delete_all_old_special_requests
+   special_requests.all.delete_all if special_requests.count > 0
+  end
+
   def get_vechile_type
     if  special_requests.exists?(['request_type LIKE ?', "%Vechile%"])
       special_requests.find_by(['request_type LIKE ?', "%Vechile%"]).request_value

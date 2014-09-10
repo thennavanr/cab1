@@ -43,7 +43,7 @@ private
     if rid
       @reservation = Reservation.find_by_rid(rid)
       session[:reservation_id] = @reservation.rid
-
+      @reservation.delete_all_old_special_requests 
       @reservation.special_requests.new(add_distance distance) if distance
       @reservation.special_requests.new(add_pet) unless reservation_params[:pet] == "0"
       @reservation.special_requests.new(add_meet_greet) unless reservation_params[:meet_greet] == "0"
@@ -58,7 +58,7 @@ private
       total = @reservation.get_total 
       @reservation.special_requests.new(add_gratuity total) if total
       if @reservation.save
-      ReservationMailer.register_email(@reservation).deliver
+        ReservationMailer.register_email(@reservation).deliver
       end
     end
   end
@@ -109,5 +109,6 @@ private
   def reservation_params 
     params.require(:reservation).permit!
   end
+
 end
 
