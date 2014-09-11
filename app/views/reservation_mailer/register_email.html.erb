@@ -1,27 +1,20 @@
 <html>
 <head>
-  <!-testing!>
-  <title>Registration Confirmation</title>
-
-  </head>
+  <title>Reservation Confirmation</title>
+</head>
 <body>
 <p style="text-align: right;"><strong>Call <a href="tel:770.572.6900" target="_blank" value="+17705726900">770.572.6900</a>&nbsp;if any changes in your reservation</strong></p>
 
-<hr />
-
-<p>Dear <%= @reservation.name.upcase %>,</p>
-
+<p>Hi <%= @reservation.name.humanize %>,</p>
 <p>Thank you for choosing Smyrna Vinings Airport Cab. &nbsp;</p>
 
-<p>It is our pleasure to confirm the following reservation. &nbsp;Feel free to contact us if any changes need to be made in this reservation by calling us at <span style="color:#0000FF;">770-572-6900</span></p>
-
-<p>Reservation Date :  <%= @reservation.pickup_date %></p>
-
-<p>Time :  <%= @reservation.pickup_time %></p>
-
-<p>Pick-up Address :  <%= @reservation.from_add %></p>
-
-<p>Drop-off Address:  <%=  @reservation.to_add %></p>
+<p>It is our pleasure to confirm the following reservation. <br>Feel free to contact us if any changes need to be made in this reservation by calling us at <a href="tel:770.572.6900" target="_blank" value="+17705726900">770.572.6900</a></p>
+Please <a href="../../reservations/<%=  @reservation.rid %>">click here</a> to review your booking.
+<p><strong>Booking Details</strong></p>
+Date :  <%= @reservation.pickup_date %><br>
+Time :  <%=  @reservation.pickup_time %><br>
+Pick-up Address :  <%= @reservation.from_add %><br>
+Drop-off Address:  <%=  @reservation.to_add %></p>
 
 <table>
   <tr style="background-color: lightblue;" >
@@ -32,10 +25,10 @@
     <% if d.price > 0 %>
 
       <tr>
-        <td >
+        <td style="border-bottom: 1px solid lightgray;" >
           <label><%= d.get_desc %></label>
         </td>
-        <td>
+        <td style="border-bottom: 1px solid lightgray;" >
           <label>$<%= number_with_precision(d.price, :precision => 2) %></label>
         </td>
       </tr>
@@ -50,8 +43,6 @@
           <label><b>$<%= number_with_precision(@reservation.get_total.to_s, :precision => 2) %></b></label>
         </td>
       </tr>
-
-
   
 </table>
 <hr />

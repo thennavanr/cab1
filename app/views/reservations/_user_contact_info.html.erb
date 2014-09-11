@@ -12,7 +12,7 @@
             <h2><%= pluralize(session[:errors].count, "error") %> prohibited this Booking:</h2>
             <ul>
               <% session[:errors].each do |msg| %>
-                <li><%= msg %></li>
+                <li><%= validation_message msg %></li>
               <% end %>
             </ul>
           </div>
