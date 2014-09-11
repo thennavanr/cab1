@@ -1,14 +1,15 @@
 <html>
 <head>
   <!-testing!>
-
   <title>Registration Confirmation</title>
-</head>
+
+  </head>
 <body>
 <p style="text-align: right;"><strong>Call <a href="tel:770.572.6900" target="_blank" value="+17705726900">770.572.6900</a>&nbsp;if any changes in your reservation</strong></p>
 
 <hr />
-<p>Hi <%= @reservation.name %></p>
+
+<p>Dear <%= @reservation.name.upcase %>,</p>
 
 <p>Thank you for choosing Smyrna Vinings Airport Cab. &nbsp;</p>
 
@@ -24,8 +25,8 @@
 
 <table>
   <tr style="background-color: lightblue;" >
-    <td>Service</td>
-    <td>Price</td>
+    <td><b>Service</b></td>
+    <td><b>Price</b></td>
     </tr>
   <%  @reservation.special_requests.each do |d| %>
     <% if d.price > 0 %>
@@ -43,16 +44,17 @@
 
       <tr>
         <td >
-          <label>Total</label>
+          <label><b>Total</b></label>
         </td>
         <td>
-          <label>$<%= number_with_precision(@reservation.get_total.to_s, :precision => 2) %></label>
+          <label><b>$<%= number_with_precision(@reservation.get_total.to_s, :precision => 2) %></b></label>
         </td>
       </tr>
 
 
   
 </table>
+<hr />
 <p>&nbsp;</p>
 
 </body>

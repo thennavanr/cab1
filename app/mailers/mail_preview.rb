@@ -1,7 +1,7 @@
 class MailPreview < MailView
 
   def reservation
-    r = Reservation.find(41)
+    r = Reservation.find(215)
     mail = ReservationMailer.register_email(r)
 
   end
