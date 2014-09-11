@@ -2,7 +2,6 @@
 development:
   adapter: postgresql 
   database: cabDB
-
   pool: 5
   timeout: 5000
 production:
