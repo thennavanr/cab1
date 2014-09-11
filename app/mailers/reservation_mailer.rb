@@ -15,7 +15,7 @@ class ReservationMailer < ActionMailer::Base
     headers["Reply_to"]=ENV["MAIL_USERNAME"]
     headers["Return_path"]=ENV["MAIL_USERNAME"]
 
-    mail( :to => 'thennavanr@gmail.com', :subject => 'Cab Booking Confirmation.' )
+    mail( :to => 'thennavanr@gmail.com', :subject => 'New Booking Recieved.' )
   end
 
 
