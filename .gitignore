@@ -6,7 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
-/config/database.yml
+/config/database.*
 .DS_Store
 
 # Ignore the default SQLite database.
