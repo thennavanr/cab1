@@ -30,6 +30,7 @@ class ReservationsController < ApplicationController
 
 private
   def create_reservation
+    binding.pry
     @reservation = Reservation.new(reservation_params)
     @reservation.save
     puts "reservation saved successfully"

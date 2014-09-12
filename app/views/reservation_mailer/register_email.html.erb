@@ -6,13 +6,13 @@
 <p style="text-align: right;"><strong>Call <a href="tel:770.572.6900" target="_blank" value="+17705726900">770.572.6900</a>&nbsp;if any changes in your reservation</strong></p>
 
 <p>Hi <%= @reservation.name.humanize %>,</p>
-<p>Thank you for choosing Smyrna Vinings Airport Cab. &nbsp;</p>
+<p>Thank you for choosing Smyrna Vinings Airport Cabs. &nbsp;</p>
 
 <p>It is our pleasure to confirm the following reservation. <br>Feel free to contact us if any changes need to be made in this reservation by calling us at <a href="tel:770.572.6900" target="_blank" value="+17705726900">770.572.6900</a></p>
 Please <a href="../../reservations/<%=  @reservation.rid %>">click here</a> to review your booking.
 <p><strong>Booking Details</strong></p>
 Date :  <%= @reservation.pickup_date %><br>
-Time :  <%=  @reservation.pickup_time %><br>
+Time :  <%=  @reservation.full_time %><br>
 Pick-up Address :  <%= @reservation.from_add %><br>
 Drop-off Address:  <%=  @reservation.to_add %></p>
 
