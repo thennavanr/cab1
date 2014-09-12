@@ -6,6 +6,16 @@ class Reservation < ActiveRecord::Base
   before_create :generate_token
   has_many :special_requests
 
+  def full_time 
+    h = hour == "1" ? "AM" : "PM"
+    t = time.to_i/60
+    k = "#{t}:00 #{h}"
+    if(t* 60 < time.to_i)
+       k = "#{t}:30 #{h}"
+    end
+    k = "12:00 #{h}" if time == "1"
+    k
+  end
 
   def get_total  
     s = 0

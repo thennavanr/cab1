@@ -89,7 +89,7 @@
           <div class="col-sm-3">
             <div class = "form-group">
               <%= f.label 'Hr *'  %>
-              <%= select_tag :hour, options_for_select([['AM',1],['PM',2]],@reservation.new_record? ? am_pm : @reservation.hour),{:class => 'form-control'} %>
+              <%= f.select :hour, options_for_select([['AM',1],['PM',2]],@reservation.new_record? ? am_pm : @reservation.hour),{},{:class => 'form-control'} %>
             </div>
           </div>
         </div>     <!--row-->
