@@ -1,5 +1,5 @@
 class ReservationMailer < ActionMailer::Base
-  default from:'k.aswinii@gmail.com' 
+  default from:'meritcarservice@gmail.com' 
 
   def register_email(reservation)
     @reservation=reservation
@@ -15,7 +15,7 @@ class ReservationMailer < ActionMailer::Base
     headers["Reply_to"]=ENV["MAIL_USERNAME"]
     headers["Return_path"]=ENV["MAIL_USERNAME"]
 
-    mail( :to => 'thennavanr@gmail.com', :subject => 'New Booking Recieved.' )
+    mail( :to => 'meritcarservice@gmail.com', :subject => 'New Booking Recieved.' )
   end
 
 
