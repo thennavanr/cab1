@@ -1,9 +1,9 @@
 ActionMailer::Base.smtp_settings = {  
-  :address              => "smtp.gmail.com",  
+  :address              => "smtp.sendgrid.net",  
   :port                 => 587,  
-  :domain               => "gmail.com",  
+  :domain               => "smyrnaviningsairportcabs.com",  
   :authentication       => "plain",  
   :enable_starttls_auto => true ,
-  :user_name=> "k.aswinii@gmail.com",
-  :password=> "thenstiral03",
+  :user_name=> ENV['SENDGRID_USERNAME'], 
+  :password=> ENV['SENDGRID_PASSWORD']
 }  
