@@ -3,7 +3,6 @@ class ReservationMailer < ActionMailer::Base
 
   def register_email(reservation)
     @reservation=reservation
-    binding.pry
     mail( :to => reservation.email, :subject => 'Cab Booking Confirmation.' )
   end
 
