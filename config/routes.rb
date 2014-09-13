@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :special_requests
+#  resources :special_requests
   get 'offers/show'
   get 'services/show'
 

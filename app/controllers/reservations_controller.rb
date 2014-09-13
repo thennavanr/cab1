@@ -58,6 +58,7 @@ private
       total = @reservation.get_total 
       @reservation.special_requests.new(add_gratuity total) if total
       if @reservation.save
+        binding.pry
         ReservationMailer.register_email(@reservation).deliver
         # ReservationMailer.booking_alert(@reservation).deliver
       end

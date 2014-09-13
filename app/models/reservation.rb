@@ -62,7 +62,7 @@ class Reservation < ActiveRecord::Base
 
   def paypal_url(return_url,notify_url)
     values = {
-      :business => 'thennavanr@outlook.com',
+      :business => 'smyrnaviningsairporttaxi@gmail.com' ,
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,
@@ -79,7 +79,7 @@ class Reservation < ActiveRecord::Base
       })
       index += 1
     end
-    "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+    "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
   end
 
   protected
