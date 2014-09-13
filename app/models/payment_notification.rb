@@ -6,7 +6,6 @@ class PaymentNotification < ActiveRecord::Base
   private
   def mark_reservation_purchased
     if status == "Completed"
-      binding.pry
       reservation.update_attribute(:purchased_at, Time.now)
     end
   end
