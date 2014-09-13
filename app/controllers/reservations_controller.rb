@@ -60,7 +60,7 @@ private
       if @reservation.save
         binding.pry
         ReservationMailer.register_email(@reservation).deliver
-        # ReservationMailer.booking_alert(@reservation).deliver
+         ReservationMailer.booking_alert(@reservation).deliver
       end
     end
   end
