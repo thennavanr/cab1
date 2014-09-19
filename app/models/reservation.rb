@@ -62,7 +62,7 @@ class Reservation < ActiveRecord::Base
 
   def paypal_url(return_url,notify_url)
     values = {
-      :business => 'smyrnaviningsairporttaxi@gmail.com' ,
+      :business => 'svairporttaxi@yahoo.com',
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,

@@ -7,7 +7,8 @@ class ReservationsController < ApplicationController
 
   def new
 
-    #  session[:reservation_id] = 22
+    # session[:reservation_id] = 'rkDLoUCvv8qNMW_h6V5_'
+
     @reservation = (session[:reservation_id] ? Reservation.find_by_rid(session[:reservation_id]) : Reservation.new)
     @anchor="" if @reservation.new_record?
     @anchor = "contact-info-price" if @reservation.id
@@ -59,7 +60,7 @@ private
       @reservation.special_requests.new(add_gratuity total) if total
       if @reservation.save
         ReservationMailer.register_email(@reservation).deliver
-         ReservationMailer.booking_alert(@reservation).deliver
+        ReservationMailer.booking_alert(@reservation).deliver
       end
     end
   end
