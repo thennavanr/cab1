@@ -84,7 +84,7 @@ private
 
   def add_gratuity tot
     tax = tot * 0.20
-    {:request_type =>'Gratuity', :request_value => '18%', :price =>tax}
+    {:request_type =>'Gratuity', :request_value => '20%', :price =>tax}
   end
 
   def add_pet
