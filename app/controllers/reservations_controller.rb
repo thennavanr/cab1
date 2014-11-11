@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
 
   def new
 
-     session[:reservation_id] = 'rkDLoUCvv8qNMW_h6V5_'
+   # session[:reservation_id] = 'rkDLoUCvv8qNMW_h6V5_'
 
     @reservation = (session[:reservation_id] ? Reservation.find_by_rid(session[:reservation_id]) : Reservation.new)
     @anchor="" if @reservation.new_record?
