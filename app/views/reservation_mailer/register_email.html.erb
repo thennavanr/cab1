@@ -9,9 +9,8 @@
 <p>Thank you for choosing Smyrna Vinings Airport Cabs. &nbsp;</p>
 
 <p>It is our pleasure to confirm the following reservation. <br>Feel free to contact us if any changes need to be made in this reservation by calling us at <a href="tel:770.572.6900" target="_blank" value="+17705726900">770.572.6900</a></p>
-Please <a href="<%=reservations_path + '/'+  @reservation.rid %>">click here</a> to review your booking.
 <p><strong>Booking Details</strong></p>
-Date :  <%= @reservation.pickup_date %><br>
+Date :  <%= @reservation.pickup_date.to_formatted_s(:rfc822) %><br>
 Time :  <%=  @reservation.full_time %><br>
 Pick-up Address :  <%= @reservation.from_add %><br>
 Drop-off Address:  <%=  @reservation.to_add %></p>

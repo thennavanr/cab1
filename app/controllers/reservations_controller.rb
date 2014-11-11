@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
 
   def new
 
-    # session[:reservation_id] = 'rkDLoUCvv8qNMW_h6V5_'
+     session[:reservation_id] = 'rkDLoUCvv8qNMW_h6V5_'
 
     @reservation = (session[:reservation_id] ? Reservation.find_by_rid(session[:reservation_id]) : Reservation.new)
     @anchor="" if @reservation.new_record?
@@ -55,8 +55,8 @@ private
       @reservation.special_requests.new(add_passengers reservation_params[:passengers])
 
       total = @reservation.get_total 
-      @reservation.special_requests.new(add_tax total) if total
-      total = @reservation.get_total 
+      #@reservation.special_requests.new(add_tax total) if total
+      #total = @reservation.get_total 
       @reservation.special_requests.new(add_gratuity total) if total
       if @reservation.save
         ReservationMailer.register_email(@reservation).deliver
@@ -79,14 +79,13 @@ private
 
   def add_tax tot
     tax = tot * 0.07
-    {:request_type =>'Tax', :request_value => '7%', :price =>tax}
+    {:request_type =>'Service Charge', :request_value => '7%', :price =>tax}
   end
 
   def add_gratuity tot
-    tax = tot * 0.18
+    tax = tot * 0.20
     {:request_type =>'Gratuity', :request_value => '18%', :price =>tax}
   end
-
 
   def add_pet
     {:request_type =>'Pets (Additional fee - $10)', :request_value => 'true', :price =>"10"}

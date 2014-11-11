@@ -16,7 +16,7 @@ Email :  <%= @reservation.email%><br>
 <br>
 Please <a href="../../reservations/<%=  @reservation.rid %>">click here</a> to review this booking in the site .
 <p><strong>Booking Details</strong></p>
-Pickup Date :  <%= @reservation.pickup_date %><br>
+Pickup Date :  <%= @reservation.pickup_date.to_formatted_s(:rfc822) %><br>
 Pickup Time :  <%=  @reservation.full_time %><br>
 Pick-up Address :  <%= @reservation.from_add %><br>
 Drop-off Address:  <%=  @reservation.to_add %></p>
