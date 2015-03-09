@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
-
+    #hi world
    # session[:reservation_id] = 'rkDLoUCvv8qNMW_h6V5_'
 
     @reservation = (session[:reservation_id] ? Reservation.find_by_rid(session[:reservation_id]) : Reservation.new)
