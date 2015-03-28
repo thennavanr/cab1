@@ -1,13 +1,15 @@
 class ReservationsController < ApplicationController
+
   @cart_ready
   def show
     @reservation = Reservation.find_by_rid(params[:id])
     @tot = @reservation.get_total 
+    ReservationMailer.register_email(@reservation).deliver
+    ReservationMailer.booking_alert(@reservation).deliver
   end
 
   def new
-    #hi world
-   # session[:reservation_id] = 'rkDLoUCvv8qNMW_h6V5_'
+   session[:reservation_id] = 'kdSIaB019LsKTCmVoqiN'
 
     @reservation = (session[:reservation_id] ? Reservation.find_by_rid(session[:reservation_id]) : Reservation.new)
     @anchor="" if @reservation.new_record?
@@ -21,7 +23,7 @@ class ReservationsController < ApplicationController
     session[:errors] = nil
     if params[:commit]  == 'Continue' || params[:commit]  == 'Book'
       create_reservation
-    elsif params[:commit] == 'Checkout'
+    elsif params[:commit] == 'Book'
       update_spl_requests
     end
     @errors = @reservation.errors.messages
@@ -59,9 +61,10 @@ private
       #total = @reservation.get_total 
       @reservation.special_requests.new(add_gratuity total) if total
       if @reservation.save
-        ReservationMailer.register_email(@reservation).deliver
-        ReservationMailer.booking_alert(@reservation).deliver
-      end
+    #   ReservationMailer.register_email(@reservation).deliver
+    #   ReservationMailer.booking_alert(@reservation).deliver
+     end
+
     end
   end
 
@@ -104,7 +107,7 @@ private
   end
 
   def add_distance d
-    p = 10+(d.to_d*2)
+    p = 10+(d.to_d*2.20)
     {:request_type =>'Distance for your Trip', :request_value => d, :price =>p}
   end
   def reservation_params 

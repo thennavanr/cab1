@@ -1,6 +1,6 @@
 <section id="contact-info-invoice" style="padding-top: 70px;">
 <div class="center">                
-  <h2>Checkout</h2>
+  <h2>Confirm Booking</h2>
   <p class="lead">Smyrna Vinings Airport cabs team is always available 24hrs a day, 7 days a week</p>
 </div>
 <div class="gmap-area" style= "background-image: url(<%=  asset_path "map.jpg" %> );" >
@@ -38,7 +38,8 @@
           </div>
           <div class="row">
             <div class="col-sm-10">
-              <label style="float:right;" >Total</label>
+              <label class='conditions' style="float:right;font-weight:normal;"> (including all Taxes and Tips)</label>
+              <label style="float:right;" >Total &nbsp </label>
             </div>
             <div class="col-sm-2 price">
               <label>$<%= @tot.to_s %></label>
@@ -48,21 +49,25 @@
         </div>
       </div>
 
-
       <div class="col-sm-3 text-center">
-
         <% return_url = "#{root_url}reservations/#{@reservation.rid}" %>
         <input class="btn btn-primary btn-lg" id="pay_pal" name="commit" onclick="location.href='<%= "#{@reservation.paypal_url(return_url,payment_notifications_url)}" %>';"   type="submit" value="Pay with PayPal">
         
       </div>
-
       <div class="col-sm-3 text-center">
         <img src=<%= asset_path "paypal_small.png"%> id="pay_pay_small" >
       </div>
+
+
+      <div class="col-sm-3 text-center">
+        <% return_url = "#{root_url}reservations/#{@reservation.rid}" %>
+        <input class="btn btn-primary btn-lg" id="pay_cash" name="commit" onclick="location.href='<%= return_url %>';"   type="submit" value="&nbsp;&nbsp;  Pay by cash &nbsp;&nbsp; ">
+      </div>
+
     </div>
 
     <p class='conditions'>‡ Credit card information is never stored with us but with payment company that handles communication with the payment business<p>
-    <p class='conditions'>‡ Your credit card will be charged only after the service is completed< p>
+    <p class='conditions'>‡ Your credit card will be charged only after the service is completed</p>
   </div>
 </div>
 </div>

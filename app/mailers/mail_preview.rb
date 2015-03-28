@@ -1,7 +1,7 @@
 class MailPreview < MailView
 
   def reservation
-    r = Reservation.find(43)
+    r = Reservation.find(2)
     mail = ReservationMailer.register_email(r)
 
   end
@@ -12,7 +12,7 @@ class MailPreview < MailView
   end 
 
   def booking_alert
-    r = Reservation.find(43)
+    r = Reservation.find(2)
     mail = ReservationMailer.booking_alert(r)
   end
   

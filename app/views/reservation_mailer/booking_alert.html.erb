@@ -19,7 +19,8 @@ Please <a href="../../reservations/<%=  @reservation.rid %>">click here</a> to r
 Pickup Date :  <%= @reservation.pickup_date.to_formatted_s(:rfc822) %><br>
 Pickup Time :  <%=  @reservation.full_time %><br>
 Pick-up Address :  <%= @reservation.from_add %><br>
-Drop-off Address:  <%=  @reservation.to_add %></p>
+Drop-off Address:  <%=  @reservation.to_add %><br>
+Flight Number: <%= @reservation.company_name %> </p>
 
 <table>
   <tr style="background-color: lightblue;" >
@@ -28,7 +29,6 @@ Drop-off Address:  <%=  @reservation.to_add %></p>
     </tr>
   <%  @reservation.special_requests.each do |d| %>
     <% if d.price > 0 %>
-
       <tr>
         <td style="border-bottom: 1px solid lightgray;" >
           <label><%= d.get_desc %></label>

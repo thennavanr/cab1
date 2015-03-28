@@ -13,7 +13,7 @@
       <div class ="row">
 
             <% 
-              t = Time.now + (2*60*60)
+              t = Time.now.in_time_zone("Eastern Time (US & Canada)") + (2*60*60)
               h = t.hour
               m = t.min
               c = h.modulo(12)*2
@@ -49,7 +49,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.submit 'Book', :class => 'btn-slide animation animated-item-3' , :required => 'required' %>
+        <%= f.submit 'Continue', :class => 'btn-slide animation animated-item-3' , :required => 'required' %>
       </div>
     </div>
     <div class = "col-sm-4">
