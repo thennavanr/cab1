@@ -63,7 +63,7 @@
         <div class ="row">
 
             <% 
-              t = Time.now + (2*60*60)
+              t = Time.now.in_time_zone("Eastern Time (US & Canada)") + (2*60*60)
               h = t.hour
               m = t.min
               c = h.modulo(12)*2
