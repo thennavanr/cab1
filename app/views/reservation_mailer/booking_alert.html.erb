@@ -42,7 +42,7 @@ Flight Number: <%= @reservation.company_name %> </p>
 
       <tr>
         <td >
-          <label><b>Total</b></label>
+          <label><b>Total(including all Taxes and Tips)</b></label>
         </td>
         <td>
           <label><b>$<%= number_with_precision(@reservation.get_total.to_s, :precision => 2) %></b></label>

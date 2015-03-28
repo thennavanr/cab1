@@ -21,9 +21,9 @@ class ReservationsController < ApplicationController
 
   def create 
     session[:errors] = nil
-    if params[:commit]  == 'Continue' || params[:commit]  == 'Price Quote'
+    if params[:commit]  == 'Continue' || params[:commit]  == 'Get Fare'
       create_reservation
-    elsif params[:commit] == 'Book'
+    elsif params[:commit] == 'View Final Fare'
       update_spl_requests
     end
     @errors = @reservation.errors.messages
