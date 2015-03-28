@@ -4,8 +4,8 @@ class ReservationsController < ApplicationController
   def show
     @reservation = Reservation.find_by_rid(params[:id])
     @tot = @reservation.get_total 
-    ReservationMailer.register_email(@reservation).deliver
-    ReservationMailer.booking_alert(@reservation).deliver
+    #ReservationMailer.register_email(@reservation).deliver 
+    #ReservationMailer.booking_alert(@reservation).deliver 
   end
 
   def new
