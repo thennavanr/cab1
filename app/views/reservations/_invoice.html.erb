@@ -51,7 +51,7 @@
 
       <div class="col-sm-3 text-center">
         <% return_url = "#{root_url}reservations/#{@reservation.rid}" %>
-        <input class="btn btn-primary btn-lg" id="pay_pal" name="commit" onclick="location.href='<%= "#{@reservation.paypal_url(return_url,payment_notifications_url)}" %>';"   type="submit" value="Pay with PayPal">
+        <input class="btn btn-primary btn-lg" id="pay_pal" name="commit" onclick="location.href='<%= "#{@reservation.paypal_url(return_url,payment_notifications_url)}" %>';"   type="submit" value="&nbsp;Pay with PayPal &nbsp;">
         
       </div>
       <div class="col-sm-3 text-center">
@@ -61,7 +61,7 @@
 
       <div class="col-sm-3 text-center">
         <% return_url = "#{root_url}reservations/#{@reservation.rid}" %>
-        <input class="btn btn-primary btn-lg" id="pay_cash" name="commit" onclick="location.href='<%= return_url %>';"   type="submit" value="&nbsp;&nbsp;  Pay by cash &nbsp;&nbsp; ">
+        <input class="btn btn-primary btn-lg" id="pay_cash" name="commit" onclick="location.href='<%= return_url %>';"   type="submit" value="Confirm Booking">
       </div>
 
     </div>
