@@ -6,7 +6,7 @@ Rails.application.config.assets.precompile += %w( prettyPhoto.css )
 Rails.application.config.assets.precompile += %w( main.css )
 Rails.application.config.assets.precompile += %w( responsive.css )
 
-
+Rails.application.config.assets.precompile += %w( jquery.geocomplete.js )
 Rails.application.config.assets.precompile += %w( jquery.js )
 Rails.application.config.assets.precompile += %w( bootstrap.min.js )
 Rails.application.config.assets.precompile += %w( jquery.prettyPhoto.js )
