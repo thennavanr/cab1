@@ -1,8 +1,6 @@
 development:
   adapter: postgresql 
   database: cabDB
-  username: postgres
-  password: tiral
   pool: 5
   timeout: 5000
 production:

@@ -8,6 +8,10 @@ class ReservationsController < ApplicationController
     ReservationMailer.booking_alert(@reservation).deliver 
   end
 
+  def index
+    redirect_to :action => 'new'
+  end
+
   def new
    #session[:reservation_id] = 'kdSIaB019LsKTCmVoqiN'
 
@@ -28,7 +32,7 @@ class ReservationsController < ApplicationController
     end
     @errors = @reservation.errors.messages
     flash.keep
-    redirect_to :action => 'new'
+    redirect_to :action => 'new' 
   end
 
 private

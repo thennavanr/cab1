@@ -11,15 +11,16 @@
           <div id="error_explanation">
             <h2><%= pluralize(session[:errors].count, "error") %> prohibited this Booking:</h2>
             <ul>
-              <% session[:errors].each do |msg| %>
-                <li><%= validation_message msg %></li>
+              <% session[:errors].each_with_index do |msg| %>
+                <% msg[0] = "From Address" if msg[0] == "from_add" %> 
+                <% msg[0] = "To Address" if msg[0] == "to_add" %> 
+                <li><%= "#{msg[0].capitalize} #{msg[1][0]}" %></li>
               <% end %>
             </ul>
           </div>
         <% end %>
         <% session[:errors] = nil %>
       </div>
-
   </div>
   <div class="row contact-wrap"> 
 
