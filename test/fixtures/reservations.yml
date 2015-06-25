@@ -9,6 +9,7 @@ one:
   pickup_date: 2014-07-10
   pickup_time: MyString
   vechile: MyString
+  rid: 12324
 
 two:
   name: MyString
@@ -19,3 +20,4 @@ two:
   pickup_date: 2014-07-10
   pickup_time: MyString
   vechile: MyString
+  rid: 22324

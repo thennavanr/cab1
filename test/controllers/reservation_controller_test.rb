@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class ReservationControllerTest < ActionController::TestCase
-  test "should get show" do
-    get :show
+  setup do
+    @controller = ReservationsController.new
+  end
+  test "should get new" do
+    get :new
     assert_response :success
   end
 

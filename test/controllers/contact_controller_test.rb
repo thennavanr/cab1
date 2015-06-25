@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class ContactControllerTest < ActionController::TestCase
-  test "should get show" do
-    get :show
+  setup do
+    @controller = ContactsController.new
+  end
+
+  test "should get new" do
+    get :new
     assert_response :success
   end
 
